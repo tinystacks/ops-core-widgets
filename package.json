@@ -1,0 +1,35 @@
+{
+  "name": "ops-core-widgets",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node_modules/.bin/tsc",
+    "clean": "rm -rf ./dist",
+    "clean-build": "npm run clean && npm ci && npm run build",
+    "lint": "./node_modules/.bin/eslint ./src",
+    "lint-fix": "./node_modules/.bin/eslint --fix ./src",
+    "lint-tests": "./node_modules/.bin/eslint --config .eslintrc.test.json ./test",
+    "lint-fix-tests": "./node_modules/.bin/eslint --config .eslintrc.test.json --fix ./test",
+    "setup-test-lint": "node ./scripts/setup-test-lint.js",
+    "test": "jest",
+    "test-cov": "jest --coverage"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "eslint": "^8.33.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "jest": "^29.4.1",
+    "ts-jest": "^29.0.5",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@aws-sdk/credential-providers": "^3.263.0",
+    "@aws-sdk/types": "^3.257.0",
+    "@tinystacks/ops-model": "file:../ops-model",
+    "aws-sdk": "^2.1307.0",
+    "ops-api": "file:../ops-core/api"
+  }
+}
