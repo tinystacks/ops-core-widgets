@@ -32,7 +32,6 @@
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.263.0",
     "@aws-sdk/types": "^3.257.0",
-    "@tinystacks/ops-model": "file:../ops-model/tinystacks-ops-model-1.0.0.tgz",
     "aws-sdk": "^2.1307.0"
   }
 }

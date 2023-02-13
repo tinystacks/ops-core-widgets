@@ -1,7 +1,6 @@
-import { Widget as WidgetType } from '@tinystacks/ops-model';
 import Provider from './provider';
 
-abstract class Widget implements WidgetType {
+abstract class Widget {
   id: string;
   displayName: string;
   type: string;
@@ -32,7 +31,7 @@ abstract class Widget implements WidgetType {
   /**
    * Override this to accept a json object that overlaps with your class's interface and returns an instance of itself.
    */
-  static fromJson (_object: WidgetType) {
+  static fromJson (_object: any) {
     throw new Error('Method not implemented.');
   }
 
@@ -40,7 +39,7 @@ abstract class Widget implements WidgetType {
    * Implement this method to return only public properties.
    * Filter out things like functions, private properties, etc.
    */
-  abstract toJson (): WidgetType;
+  abstract toJson (): any;
 
   /**
    * Implement this to fetch runtime data.
