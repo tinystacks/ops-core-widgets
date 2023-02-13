@@ -1,7 +1,20 @@
-import { Tab as TabType } from '@tinystacks/ops-model';
 import Widget from './temporary-classes/widget';
 
-class Tab extends Widget implements TabType {
+/* Holding onto this to replace use of any below
+type TabType = {
+  id: string;
+  displayName: string;
+  type: string;
+  tabDisplayName: string;
+  widgetIds: string[];
+  showDisplayName?: boolean;
+  description?: string;
+  showDescription?: boolean;
+  providerId: string;
+}
+*/
+
+export class Tab extends Widget {
   tabDisplayName: string;
   widgetIds: string[];
 
@@ -19,7 +32,7 @@ class Tab extends Widget implements TabType {
       id,
       displayName,
       type,
-      undefined,
+      '',
       showDisplayName,
       description,
       showDescription
@@ -28,7 +41,7 @@ class Tab extends Widget implements TabType {
     this.widgetIds = widgetIds;
   }
 
-  static fromJson (object: TabType): Tab {
+  static fromJson (object: any): Tab {
     const {
       id,
       displayName,
@@ -51,7 +64,7 @@ class Tab extends Widget implements TabType {
     );
   }
 
-  toJson (): TabType {
+  toJson (): any {
     const {
       id,
       displayName,
@@ -78,5 +91,3 @@ class Tab extends Widget implements TabType {
 
   getData (): void { return; }
 }
-
-export default Tab;

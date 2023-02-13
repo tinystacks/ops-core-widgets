@@ -1,11 +1,21 @@
-import {
-  TabPanel as TabPanelType,
-  Tab as TabType
-} from '@tinystacks/ops-model';
 import Widget from './temporary-classes/widget';
-import Tab from './tab';
+import { Tab } from './tab';
 
-class TabPanel extends Widget implements TabPanelType {
+/* Holding onto this to replace use of any below
+type TabPanelType = {
+  id: string;
+  displayName: string;
+  type: string;
+  showDisplayName?: boolean;
+  description?: string;
+  showDescription?: boolean;
+  tabs: {
+    [id: string]: TabType
+  };
+}
+*/
+
+export class TabPanel extends Widget {
   tabs: {
     [id: string]: Tab
   };
@@ -25,7 +35,7 @@ class TabPanel extends Widget implements TabPanelType {
       id,
       displayName,
       type,
-      undefined,
+      '',
       showDisplayName,
       description,
       showDescription
@@ -33,7 +43,7 @@ class TabPanel extends Widget implements TabPanelType {
     this.tabs = tabs;
   }
 
-  static fromJson (object: TabPanelType): TabPanel {
+  static fromJson (object: any): TabPanel {
     const {
       id,
       displayName,
@@ -58,8 +68,8 @@ class TabPanel extends Widget implements TabPanelType {
     );
   }
 
-  toJson (): TabPanelType {
-    const tabs = Object.entries(this.tabs).reduce<{ [id: string]: TabType }>((acc, [id, tab]) => {
+  toJson (): any {
+    const tabs = Object.entries(this.tabs).reduce<{ [id: string]: any }>((acc, [id, tab]) => {
       acc[id] = tab.toJson();
       return acc;
     }, {});
@@ -87,5 +97,3 @@ class TabPanel extends Widget implements TabPanelType {
 
   getData (): void { return; }
 }
-
-export default TabPanel;

@@ -1,10 +1,22 @@
-import { Markdown as MarkdownType } from '@tinystacks/ops-model';
 import Widget from './temporary-classes/widget';
 
-class Markdown extends Widget implements MarkdownType {
+/* Holding onto this to replace use of any below
+type MarkdownType = {
+  id: string,
+  displayName: string,
+  type: string,
+  text: string,
+  showDisplayName?: boolean,
+  description?: string,
+  showDescription?: boolean,
+  providerId: string
+}
+*/
+
+export class Markdown extends Widget {
   text: string;
 
-  constructor (
+  constructor(
     id: string,
     displayName: string,
     type: string,
@@ -17,7 +29,7 @@ class Markdown extends Widget implements MarkdownType {
       id,
       displayName,
       type,
-      undefined,
+      '',
       showDisplayName,
       description,
       showDescription
@@ -25,7 +37,7 @@ class Markdown extends Widget implements MarkdownType {
     this.text = text;
   }
 
-  static fromJson (object: MarkdownType): Markdown {
+  static fromJson(object: any): Markdown {
     const {
       id,
       displayName,
@@ -46,7 +58,7 @@ class Markdown extends Widget implements MarkdownType {
     );
   }
 
-  toJson (): MarkdownType {
+  toJson(): any {
     const {
       id,
       displayName,
@@ -69,7 +81,5 @@ class Markdown extends Widget implements MarkdownType {
     };
   }
 
-  getData (): void { return; }
+  getData(): void { return; }
 }
-
-export default Markdown;
