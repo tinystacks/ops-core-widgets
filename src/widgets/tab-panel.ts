@@ -1,4 +1,4 @@
-import Widget from './temporary-classes/widget';
+import Widget from '../temporary-classes/widget';
 import { Tab } from './tab';
 
 /* Holding onto this to replace use of any below

@@ -1,26 +1,29 @@
-import Widget from './temporary-classes/widget';
+import Widget from '../temporary-classes/widget';
 
 /* Holding onto this to replace use of any below
-type MarkdownType = {
-  id: string,
-  displayName: string,
-  type: string,
-  text: string,
-  showDisplayName?: boolean,
-  description?: string,
-  showDescription?: boolean,
-  providerId: string
+type TabType = {
+  id: string;
+  displayName: string;
+  type: string;
+  tabDisplayName: string;
+  widgetIds: string[];
+  showDisplayName?: boolean;
+  description?: string;
+  showDescription?: boolean;
+  providerId: string;
 }
 */
 
-export class Markdown extends Widget {
-  text: string;
+export class Tab extends Widget {
+  tabDisplayName: string;
+  widgetIds: string[];
 
-  constructor(
+  constructor (
     id: string,
     displayName: string,
     type: string,
-    text: string,
+    tabDisplayName: string,
+    widgetIds: string[] = [],
     showDisplayName?: boolean,
     description?: string,
     showDescription?: boolean
@@ -34,36 +37,40 @@ export class Markdown extends Widget {
       description,
       showDescription
     );
-    this.text = text;
+    this.tabDisplayName = tabDisplayName;
+    this.widgetIds = widgetIds;
   }
 
-  static fromJson(object: any): Markdown {
+  static fromJson (object: any): Tab {
     const {
       id,
       displayName,
       type,
-      text,
+      tabDisplayName,
+      widgetIds,
       showDisplayName,
       description,
       showDescription
     } = object;
-    return new Markdown(
+    return new Tab(
       id,
       displayName,
       type,
-      text,
+      tabDisplayName,
+      widgetIds,
       showDisplayName,
       description,
       showDescription
     );
   }
 
-  toJson(): any {
+  toJson (): any {
     const {
       id,
       displayName,
       type,
-      text,
+      tabDisplayName,
+      widgetIds,
       showDisplayName,
       description,
       showDescription,
@@ -73,7 +80,8 @@ export class Markdown extends Widget {
       id,
       displayName,
       type,
-      text,
+      tabDisplayName,
+      widgetIds,
       showDisplayName,
       description,
       showDescription,
@@ -81,5 +89,5 @@ export class Markdown extends Widget {
     };
   }
 
-  getData(): void { return; }
+  getData (): void { return; }
 }
