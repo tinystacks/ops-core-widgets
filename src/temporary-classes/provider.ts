@@ -1,6 +1,4 @@
-import { Provider as ProviderType } from '@tinystacks/ops-model';
-
-abstract class Provider implements ProviderType {
+abstract class Provider {
   id?: string;
   type: string;
 
