@@ -83,7 +83,7 @@ export class Markdown extends Widget {
 
   getData (): void { return; }
 
-  render() {
+  render () {
     throw new Error('Method not implemented.');
   }
 }

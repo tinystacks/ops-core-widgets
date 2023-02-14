@@ -97,7 +97,7 @@ export class TabPanel extends Widget {
 
   getData (): void { return; }
 
-  render() {
+  render () {
     throw new Error('Method not implemented.');
   }
 }

@@ -91,7 +91,7 @@ export class Tab extends Widget {
 
   getData (): void { return; }
 
-  render() {
+  render () {
     throw new Error('Method not implemented.');
   }
 }
