@@ -18,6 +18,7 @@
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "jsx": "preserve",
     "typeRoots": ["./node_modules/@types"],
     "outDir": "./dist"
   },

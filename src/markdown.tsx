@@ -1,4 +1,4 @@
-import Widget from './temporary-classes/widget';
+import { Widget } from '@tinystacks/ops-core';
 
 /* Holding onto this to replace use of any below
 type MarkdownType = {
@@ -16,7 +16,7 @@ type MarkdownType = {
 export class Markdown extends Widget {
   text: string;
 
-  constructor(
+  constructor (
     id: string,
     displayName: string,
     type: string,
@@ -37,7 +37,7 @@ export class Markdown extends Widget {
     this.text = text;
   }
 
-  static fromJson(object: any): Markdown {
+  static fromJson (object: any): Markdown {
     const {
       id,
       displayName,
@@ -58,7 +58,7 @@ export class Markdown extends Widget {
     );
   }
 
-  toJson(): any {
+  toJson (): any {
     const {
       id,
       displayName,
@@ -81,5 +81,9 @@ export class Markdown extends Widget {
     };
   }
 
-  getData(): void { return; }
+  getData (): void { return; }
+  
+  render (): JSX.Element {
+    return <div>{this.text}</div>;
+  }
 }

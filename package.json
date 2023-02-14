@@ -1,12 +1,17 @@
 {
-  "name": "ops-core-widgets",
+  "name": "@tinystacks/ops-core-widgets",
   "version": "1.0.0",
   "main": "dist/index.js",
   "files": [
-    "src"
+    "src",
+    "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinystacks/ops-core-widgets.git"
+  },
   "scripts": {
-    "build": "node_modules/.bin/tsc",
+    "build": "tsc",
     "clean": "rm -rf ./dist || true && rm *.tgz || true",
     "clean-build": "npm run clean && npm ci && npm run build",
     "lint": "./node_modules/.bin/eslint ./src",
@@ -20,6 +25,7 @@
   },
   "devDependencies": {
     "@types/jest": "^29.4.0",
+    "@types/react": "^18.0.28",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "eslint": "^8.33.0",
     "eslint-plugin-import": "^2.27.5",
@@ -32,6 +38,8 @@
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.263.0",
     "@aws-sdk/types": "^3.257.0",
-    "aws-sdk": "^2.1307.0"
+    "@tinystacks/ops-core": "^0.0.5",
+    "aws-sdk": "^2.1307.0",
+    "react": "^18.2.0"
   }
 }

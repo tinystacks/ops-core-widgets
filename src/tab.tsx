@@ -1,4 +1,4 @@
-import Widget from './temporary-classes/widget';
+import { Widget } from '@tinystacks/ops-core';
 
 /* Holding onto this to replace use of any below
 type TabType = {
@@ -90,4 +90,7 @@ export class Tab extends Widget {
   }
 
   getData (): void { return; }
+  render (): JSX.Element {
+    return <div>TODO</div>;
+  }
 }

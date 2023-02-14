@@ -1,4 +1,4 @@
-import Widget from './temporary-classes/widget';
+import { Widget } from '@tinystacks/ops-core';
 import { Tab } from './tab';
 
 /* Holding onto this to replace use of any below
@@ -96,4 +96,7 @@ export class TabPanel extends Widget {
   }
 
   getData (): void { return; }
+  render (): JSX.Element {
+    return <div>TODO</div>;
+  }
 }
