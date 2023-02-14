@@ -38,7 +38,7 @@
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.263.0",
     "@aws-sdk/types": "^3.257.0",
-    "@tinystacks/ops-core": "^0.0.5",
+    "@tinystacks/ops-core": "^0.0.8",
     "aws-sdk": "^2.1307.0",
     "react": "^18.2.0"
   }
