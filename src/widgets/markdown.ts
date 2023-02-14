@@ -1,4 +1,4 @@
-import Widget from '../temporary-classes/widget';
+import { Widget } from '@tinystacks/ops-core';
 
 /* Holding onto this to replace use of any below
 type MarkdownType = {
@@ -82,4 +82,8 @@ export class Markdown extends Widget {
   }
 
   getData (): void { return; }
+
+  render() {
+    throw new Error('Method not implemented.');
+  }
 }

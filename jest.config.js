@@ -11,8 +11,7 @@ module.exports = {
     "src/**/*.ts"
   ],
   coveragePathIgnorePatterns: [
-    "src/index.ts",
-    "src/temporary-classes/*"
+    "src/index.ts"
   ],
   coverageThreshold: {
     global: {
