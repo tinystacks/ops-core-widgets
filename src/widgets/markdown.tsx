@@ -1,29 +1,27 @@
 import { Widget } from '@tinystacks/ops-core';
+import { h } from 'preact';
 
 /* Holding onto this to replace use of any below
-type TabType = {
-  id: string;
-  displayName: string;
-  type: string;
-  tabDisplayName: string;
-  widgetIds: string[];
-  showDisplayName?: boolean;
-  description?: string;
-  showDescription?: boolean;
-  providerId: string;
+type MarkdownType = {
+  id: string,
+  displayName: string,
+  type: string,
+  text: string,
+  showDisplayName?: boolean,
+  description?: string,
+  showDescription?: boolean,
+  providerId: string
 }
 */
 
-export class Tab extends Widget {
-  tabDisplayName: string;
-  widgetIds: string[];
+export class Markdown extends Widget {
+  text: string;
 
   constructor (
     id: string,
     displayName: string,
     type: string,
-    tabDisplayName: string,
-    widgetIds: string[] = [],
+    text: string,
     showDisplayName?: boolean,
     description?: string,
     showDescription?: boolean
@@ -37,27 +35,24 @@ export class Tab extends Widget {
       description,
       showDescription
     );
-    this.tabDisplayName = tabDisplayName;
-    this.widgetIds = widgetIds;
+    this.text = text;
   }
 
-  static fromJson (object: any): Tab {
+  static fromJson (object: any): Markdown {
     const {
       id,
       displayName,
       type,
-      tabDisplayName,
-      widgetIds,
+      text,
       showDisplayName,
       description,
       showDescription
     } = object;
-    return new Tab(
+    return new Markdown(
       id,
       displayName,
       type,
-      tabDisplayName,
-      widgetIds,
+      text,
       showDisplayName,
       description,
       showDescription
@@ -69,8 +64,7 @@ export class Tab extends Widget {
       id,
       displayName,
       type,
-      tabDisplayName,
-      widgetIds,
+      text,
       showDisplayName,
       description,
       showDescription,
@@ -80,8 +74,7 @@ export class Tab extends Widget {
       id,
       displayName,
       type,
-      tabDisplayName,
-      widgetIds,
+      text,
       showDisplayName,
       description,
       showDescription,
@@ -90,8 +83,8 @@ export class Tab extends Widget {
   }
 
   getData (): void { return; }
-
-  render () {
-    throw new Error('Method not implemented.');
+  
+  render (): JSX.Element {
+    return <div>{this.text}</div>;
   }
 }

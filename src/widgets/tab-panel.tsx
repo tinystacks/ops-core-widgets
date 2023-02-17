@@ -1,5 +1,6 @@
 import { Widget } from '@tinystacks/ops-core';
 import { Tab } from './tab';
+import { h } from 'preact';
 
 /* Holding onto this to replace use of any below
 type TabPanelType = {
@@ -96,8 +97,8 @@ export class TabPanel extends Widget {
   }
 
   getData (): void { return; }
-
-  render () {
-    throw new Error('Method not implemented.');
+  
+  render (): JSX.Element {
+    return <div>TODO</div>;
   }
 }
