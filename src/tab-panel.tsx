@@ -1,5 +1,6 @@
 import { Widget } from '@tinystacks/ops-core';
 import { Tab } from './tab';
+import { h, Fragment } from 'preact';
 
 /* Holding onto this to replace use of any below
 type TabPanelType = {
@@ -53,8 +54,8 @@ export class TabPanel extends Widget {
       showDescription,
       tabs: tabsObject = {}
     } = object;
-    const tabs = Object.entries(tabsObject).reduce<{ [id: string]: Tab }>((acc, [id, tabObject]) => {
-      acc[id] = Tab.fromJson(tabObject);
+    const tabs = Object.entries(tabsObject).reduce<{ [id: string]: Tab }>((acc, [tabId, tabObject]) => {
+      acc[tabId] = Tab.fromJson(tabObject);
       return acc;
     }, {});
     return new TabPanel(

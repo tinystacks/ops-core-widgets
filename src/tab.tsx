@@ -1,4 +1,5 @@
 import { Widget } from '@tinystacks/ops-core';
+import { h, Fragment } from 'preact';
 
 /* Holding onto this to replace use of any below
 type TabType = {

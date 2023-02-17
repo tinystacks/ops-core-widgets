@@ -1,9 +1,8 @@
 {
   "name": "@tinystacks/ops-core-widgets",
-  "version": "1.0.0",
+  "version": "1.0.1-local.0",
   "main": "dist/index.js",
   "files": [
-    "src",
     "dist"
   ],
   "repository": {
@@ -18,6 +17,7 @@
     "lint-fix": "./node_modules/.bin/eslint --fix ./src",
     "lint-tests": "./node_modules/.bin/eslint --config .eslintrc.test.json ./test",
     "lint-fix-tests": "./node_modules/.bin/eslint --config .eslintrc.test.json --fix ./test",
+    "prerelease": "npm version prerelease --preid=local --no-git-tag-version",
     "publish-local": "npm run prerelease; bash ./localNpmLogin.sh; npm publish --tag local --@tinystacks:registry=http://local-npm-registry:4873",
     "setup-test-lint": "node ./scripts/setup-test-lint.js",
     "test": "jest",
@@ -38,8 +38,8 @@
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.263.0",
     "@aws-sdk/types": "^3.257.0",
-    "@tinystacks/ops-core": "^0.0.8",
+    "@tinystacks/ops-core": "^0.0.30",
     "aws-sdk": "^2.1307.0",
-    "react": "^18.2.0"
+    "preact": "^10.12.1"
   }
 }

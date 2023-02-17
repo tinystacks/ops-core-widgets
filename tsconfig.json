@@ -4,7 +4,7 @@
     "module": "CommonJS",
     "declaration": true,
     "strict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "strictNullChecks": false,
     "noImplicitThis": true,
     "alwaysStrict": true,
@@ -18,9 +18,14 @@
     "strictPropertyInitialization": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "jsx": "preserve",
     "typeRoots": ["./node_modules/@types"],
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "allowJs": true
   },
-  "include": ["src"]
+  "include": ["./src"]
 }
