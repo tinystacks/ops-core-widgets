@@ -7,7 +7,7 @@ describe('fromJson', () => {
       displayName: 'test-tab-display-name',
       type: 'test-tab-type',
       tabDisplayName: 'test-tab-display-name',
-      widgetIds: [],
+      widgetIds: [] as string[],
       showDisplayName: true,
       description: 'test-tab-description',
       showDescription: true
@@ -76,7 +76,7 @@ describe('toJson', () => {
       displayName: 'test-tab-display-name',
       type: 'test-tab-type',
       tabDisplayName: 'test-tab-display-name',
-      widgetIds: [],
+      widgetIds: [] as string[],
       showDisplayName: true,
       description: 'test-tab-description',
       showDescription: true,
