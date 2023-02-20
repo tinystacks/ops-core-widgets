@@ -78,7 +78,7 @@ export class Markdown extends Widget {
   
   render (): JSX.Element {
     return (
-      <div style={{ padding: '20px' }}>
+      <div style={{ padding: '20px', width: '100%' }}>
         <div className='widgetContainer'>
           <ReactMarkdown components={ChakraUIRenderer()} children={this.markdown} skipHtml />
         </div>
