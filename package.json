@@ -1,6 +1,6 @@
 {
   "name": "@tinystacks/ops-core-widgets",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "main": "dist/index.js",
   "files": [
     "dist"
@@ -40,6 +40,6 @@
     "@aws-sdk/types": "^3.257.0",
     "@tinystacks/ops-core": "^0.0.30",
     "aws-sdk": "^2.1307.0",
-    "preact": "^10.12.1"
+    "react": "^18.2.0"
   }
 }

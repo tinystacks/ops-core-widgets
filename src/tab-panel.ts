@@ -1,97 +1,107 @@
 import { Widget } from '@tinystacks/ops-core';
-import { h, Fragment } from 'preact';
+import { Tab } from './tab';
+import React from 'react';
+
 
 /* Holding onto this to replace use of any below
-type TabType = {
+type TabPanelType = {
   id: string;
   displayName: string;
   type: string;
-  tabDisplayName: string;
-  widgetIds: string[];
   showDisplayName?: boolean;
   description?: string;
   showDescription?: boolean;
-  providerId: string;
+  tabs: {
+    [id: string]: TabType
+  };
 }
 */
 
-export class Tab extends Widget {
-  tabDisplayName: string;
-  widgetIds: string[];
+export class TabPanel extends Widget {
+  tabs: {
+    [id: string]: Tab
+  };
 
   constructor (
     id: string,
     displayName: string,
     type: string,
-    tabDisplayName: string,
-    widgetIds: string[] = [],
+    providerId?: string,
     showDisplayName?: boolean,
     description?: string,
-    showDescription?: boolean
+    showDescription?: boolean,
+    tabs: {
+      [id: string]: Tab
+    } = {}
   ) {
     super(
       id,
       displayName,
       type,
-      '',
+      providerId,
       showDisplayName,
       description,
       showDescription
     );
-    this.tabDisplayName = tabDisplayName;
-    this.widgetIds = widgetIds;
+    this.tabs = tabs;
   }
 
-  static fromJson (object: any): Tab {
+  static fromJson (object: any): TabPanel {
     const {
       id,
       displayName,
       type,
-      tabDisplayName,
-      widgetIds,
       showDisplayName,
       description,
-      showDescription
+      showDescription,
+      tabs: tabsObject = {},
+      providerId
     } = object;
-    return new Tab(
+    const tabs = Object.entries(tabsObject).reduce<{ [id: string]: Tab }>((acc, [tabId, tabObject]) => {
+      acc[tabId] = Tab.fromJson(tabObject);
+      return acc;
+    }, {});
+    return new TabPanel(
       id,
       displayName,
       type,
-      tabDisplayName,
-      widgetIds,
+      providerId,
       showDisplayName,
       description,
-      showDescription
+      showDescription,
+      tabs
     );
   }
 
   toJson (): any {
+    const tabs = Object.entries(this.tabs).reduce<{ [id: string]: any }>((acc, [id, tab]) => {
+      acc[id] = tab.toJson();
+      return acc;
+    }, {});
+
     const {
       id,
       displayName,
       type,
-      tabDisplayName,
-      widgetIds,
+      providerId,
       showDisplayName,
       description,
-      showDescription,
-      providerId
+      showDescription
     } = this;
     return {
       id,
       displayName,
       type,
-      tabDisplayName,
-      widgetIds,
       showDisplayName,
       description,
       showDescription,
-      providerId
+      providerId,
+      tabs
     };
   }
 
   getData (): void { return; }
   render (): JSX.Element {
-    return <div>TODO</div>;
+    return React.createElement('div', null, 'TODO');
   }
 }

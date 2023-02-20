@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "CommonJS",
     "declaration": true,
     "strict": true,
@@ -22,9 +23,7 @@
     "outDir": "./dist",
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "jsx": "react",
-    "jsxFactory": "h",
-    "jsxFragmentFactory": "Fragment",
+    "jsx": "preserve",
     "allowJs": true
   },
   "include": ["./src"]

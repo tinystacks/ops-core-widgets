@@ -1,5 +1,5 @@
 import { Widget } from '@tinystacks/ops-core';
-import { h, Fragment } from 'preact';
+import React from 'react';
 /* Holding onto this to replace use of any below
 type MarkdownType = {
   id: string,
@@ -20,6 +20,7 @@ export class Markdown extends Widget {
     id: string,
     displayName: string,
     type: string,
+    providerId: string,
     text: string,
     showDisplayName?: boolean,
     description?: string,
@@ -29,7 +30,7 @@ export class Markdown extends Widget {
       id,
       displayName,
       type,
-      '',
+      providerId,
       showDisplayName,
       description,
       showDescription
@@ -45,12 +46,14 @@ export class Markdown extends Widget {
       text,
       showDisplayName,
       description,
-      showDescription
+      showDescription,
+      providerId
     } = object;
     return new Markdown(
       id,
       displayName,
       type,
+      providerId,
       text,
       showDisplayName,
       description,
@@ -84,6 +87,6 @@ export class Markdown extends Widget {
   getData (): void { return; }
   
   render (): JSX.Element {
-    return <div>{this.text}</div>;
+    return React.createElement('div', null, this.text);
   }
 }
