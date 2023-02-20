@@ -10,8 +10,10 @@
     "url": "git+https://github.com/tinystacks/ops-core-widgets.git"
   },
   "scripts": {
-    "build": "tsc",
-    "clean": "rm -rf ./dist || true && rm *.tgz || true",
+    "build": "npm run build:types && npm run build:js; rm dist/*.jsx",
+    "build:types": "tsc",
+    "build:js": "babel dist --out-dir dist --extensions \".js,.jsx\" --source-maps inline",
+    "clean": "rm -rf ./dist || true; rm *.tgz || true; rm -rf ./build",
     "clean-build": "npm run clean && npm ci && npm run build",
     "lint": "./node_modules/.bin/eslint ./src",
     "lint-fix": "./node_modules/.bin/eslint --fix ./src",
@@ -24,6 +26,9 @@
     "test-cov": "jest --coverage"
   },
   "devDependencies": {
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
+    "@babel/preset-react": "^7.18.6",
     "@types/jest": "^29.4.0",
     "@types/react": "^18.0.28",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
@@ -38,8 +43,10 @@
   "dependencies": {
     "@aws-sdk/credential-providers": "^3.263.0",
     "@aws-sdk/types": "^3.257.0",
+    "@chakra-ui/react": "^2.5.1",
     "@tinystacks/ops-core": "^0.0.30",
     "aws-sdk": "^2.1307.0",
-    "react": "^18.2.0"
+    "react": "^18.2.0",
+    "react-remark": "^2.1.0"
   }
 }

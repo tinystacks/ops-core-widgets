@@ -23,6 +23,7 @@ export class Tab extends Widget {
     id: string,
     displayName: string,
     type: string,
+    providerId: string,
     tabDisplayName: string,
     widgetIds: string[] = [],
     showDisplayName?: boolean,
@@ -33,7 +34,7 @@ export class Tab extends Widget {
       id,
       displayName,
       type,
-      '',
+      providerId,
       showDisplayName,
       description,
       showDescription
@@ -92,6 +93,10 @@ export class Tab extends Widget {
 
   getData (): void { return; }
   render (): JSX.Element {
-    return React.createElement('div', null, 'TODO');
+    return (
+      <div>
+        TODO. ID: {this.id} Widgets: {this.widgetIds.map(w => <div>{w}</div>)}
+      </div>
+    );
   }
 }

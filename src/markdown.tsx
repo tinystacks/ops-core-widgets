@@ -1,27 +1,16 @@
 import { Widget } from '@tinystacks/ops-core';
-import React from 'react';
-/* Holding onto this to replace use of any below
-type MarkdownType = {
-  id: string,
-  displayName: string,
-  type: string,
-  text: string,
-  showDisplayName?: boolean,
-  description?: string,
-  showDescription?: boolean,
-  providerId: string
-}
-*/
+import * as React from 'react';
+import { Remark } from 'react-remark';
 
 export class Markdown extends Widget {
-  text: string;
-
+  markdown: string;
+    
   constructor (
     id: string,
     displayName: string,
     type: string,
     providerId: string,
-    text: string,
+    markdown: string,
     showDisplayName?: boolean,
     description?: string,
     showDescription?: boolean
@@ -35,7 +24,7 @@ export class Markdown extends Widget {
       description,
       showDescription
     );
-    this.text = text;
+    this.markdown = markdown;
   }
 
   static fromJson (object: any): Markdown {
@@ -43,7 +32,7 @@ export class Markdown extends Widget {
       id,
       displayName,
       type,
-      text,
+      markdown,
       showDisplayName,
       description,
       showDescription,
@@ -54,7 +43,7 @@ export class Markdown extends Widget {
       displayName,
       type,
       providerId,
-      text,
+      markdown,
       showDisplayName,
       description,
       showDescription
@@ -66,7 +55,7 @@ export class Markdown extends Widget {
       id,
       displayName,
       type,
-      text,
+      markdown,
       showDisplayName,
       description,
       showDescription,
@@ -76,7 +65,7 @@ export class Markdown extends Widget {
       id,
       displayName,
       type,
-      text,
+      markdown,
       showDisplayName,
       description,
       showDescription,
@@ -87,6 +76,14 @@ export class Markdown extends Widget {
   getData (): void { return; }
   
   render (): JSX.Element {
-    return React.createElement('div', null, this.text);
+    
+
+    return (
+      <div style={{ padding: '20px' }}>
+        <div className='widgetContainer' style={{ pre: { padding: '20px' } }}>
+          <Remark>{this.markdown}</Remark>
+        </div>
+      </div>
+    );
   }
 }
