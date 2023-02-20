@@ -46,7 +46,9 @@
     "@chakra-ui/react": "^2.5.1",
     "@tinystacks/ops-core": "^0.0.30",
     "aws-sdk": "^2.1307.0",
+    "chakra-ui-markdown-renderer": "^4.1.0",
     "react": "^18.2.0",
+    "react-markdown": "^8.0.5",
     "react-remark": "^2.1.0"
   }
 }
