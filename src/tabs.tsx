@@ -6,7 +6,7 @@ import {
 import React from 'react';
 import { Widget } from '@tinystacks/ops-model';
 import isEmpty from 'lodash.isempty';
-import { Tab } from './tab';
+import { Tab } from './tab.js';
 
 export class Tabs extends BaseWidget {
   constructor (props: Widget) {

@@ -1,3 +1,3 @@
-export * from './markdown';
-export * from './tabs';
-export * from './tab';
+export * from './markdown.js';
+export * from './tabs.js';
+export * from './tab.js';

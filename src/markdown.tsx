@@ -1,6 +1,6 @@
 import { BaseWidget } from '@tinystacks/ops-core';
 import { Widget } from '@tinystacks/ops-model';
-import * as React from 'react';
+import React from 'react';
 import { default as ReactMarkdown } from 'react-markdown';
 import { default as ChakraUIRenderer } from 'chakra-ui-markdown-renderer';
 
