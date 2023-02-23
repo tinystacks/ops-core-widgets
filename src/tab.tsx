@@ -1,101 +1,33 @@
-import { Widget } from '@tinystacks/ops-core';
+import { BaseWidget } from '@tinystacks/ops-core';
+import { Widget } from '@tinystacks/ops-model';
 import React from 'react';
 
-/* Holding onto this to replace use of any below
-type TabType = {
-  id: string;
-  displayName: string;
-  type: string;
-  tabDisplayName: string;
-  widgetIds: string[];
-  showDisplayName?: boolean;
-  description?: string;
-  showDescription?: boolean;
-  providerId: string;
-}
-*/
+type TabProps = Widget & { tabDisplayName?: string };
 
-export class Tab extends Widget {
+export class Tab extends BaseWidget {
   tabDisplayName: string;
-  widgetIds: string[];
 
-  constructor (
-    id: string,
-    displayName: string,
-    type: string,
-    providerId: string,
-    tabDisplayName: string,
-    widgetIds: string[] = [],
-    showDisplayName?: boolean,
-    description?: string,
-    showDescription?: boolean
-  ) {
-    super(
-      id,
-      displayName,
-      type,
-      providerId,
-      showDisplayName,
-      description,
-      showDescription
-    );
-    this.tabDisplayName = tabDisplayName;
-    this.widgetIds = widgetIds;
+  constructor (props: TabProps) {
+    super(props);
+    this.tabDisplayName = props.tabDisplayName;
   }
 
-  static fromJson (object: any): Tab {
-    const {
-      id,
-      displayName,
-      type,
-      tabDisplayName,
-      widgetIds,
-      showDisplayName,
-      description,
-      showDescription
-    } = object;
-    return new Tab(
-      id,
-      displayName,
-      type,
-      tabDisplayName,
-      widgetIds,
-      showDisplayName,
-      description,
-      showDescription
-    );
+  static fromJson (object: TabProps): Tab {
+    return new Tab(object);
   }
 
   toJson (): any {
-    const {
-      id,
-      displayName,
-      type,
-      tabDisplayName,
-      widgetIds,
-      showDisplayName,
-      description,
-      showDescription,
-      providerId
-    } = this;
-    return {
-      id,
-      displayName,
-      type,
-      tabDisplayName,
-      widgetIds,
-      showDisplayName,
-      description,
-      showDescription,
-      providerId
-    };
+    return { ...super.toJson, tabDisplayName: this.tabDisplayName };
   }
 
   getData (): void { return; }
-  render (): JSX.Element {
+  render (children?: BaseWidget[]): JSX.Element {
+    if (!children) {
+      throw new Error('Children are not defined!');
+    }
     return (
       <div>
-        TODO. ID: {this.id} Widgets: {this.widgetIds.map(w => <div>{w}</div>)}
+        {children.map(c => c.render())}
       </div>
     );
   }

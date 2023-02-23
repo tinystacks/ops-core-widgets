@@ -1,77 +1,25 @@
-import { Widget } from '@tinystacks/ops-core';
+import { BaseWidget } from '@tinystacks/ops-core';
+import { Widget } from '@tinystacks/ops-model';
 import * as React from 'react';
 import { default as ReactMarkdown } from 'react-markdown';
 import { default as ChakraUIRenderer } from 'chakra-ui-markdown-renderer';
 
-export class Markdown extends Widget {
+type MarkdownProps = Widget & { markdown: string }
+
+export class Markdown extends BaseWidget {
   markdown: string;
     
-  constructor (
-    id: string,
-    displayName: string,
-    type: string,
-    providerId: string,
-    markdown: string,
-    showDisplayName?: boolean,
-    description?: string,
-    showDescription?: boolean
-  ) {
-    super(
-      id,
-      displayName,
-      type,
-      providerId,
-      showDisplayName,
-      description,
-      showDescription
-    );
-    this.markdown = markdown;
+  constructor (props: MarkdownProps) {
+    super(props);
+    this.markdown = props.markdown;
   }
 
-  static fromJson (object: any): Markdown {
-    const {
-      id,
-      displayName,
-      type,
-      markdown,
-      showDisplayName,
-      description,
-      showDescription,
-      providerId
-    } = object;
-    return new Markdown(
-      id,
-      displayName,
-      type,
-      providerId,
-      markdown,
-      showDisplayName,
-      description,
-      showDescription
-    );
+  static fromJson (object: MarkdownProps): Markdown {
+    return new Markdown(object);
   }
 
   toJson (): any {
-    const {
-      id,
-      displayName,
-      type,
-      markdown,
-      showDisplayName,
-      description,
-      showDescription,
-      providerId
-    } = this;
-    return {
-      id,
-      displayName,
-      type,
-      markdown,
-      showDisplayName,
-      description,
-      showDescription,
-      providerId
-    };
+    return { ...super.toJson(), markdown: this.markdown };
   }
 
   getData (): void { return; }
