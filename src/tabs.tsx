@@ -6,40 +6,46 @@ import {
 import React from 'react';
 import { Widget } from '@tinystacks/ops-model';
 import isEmpty from 'lodash.isempty';
-import { Tab } from './tab.js';
+
+type TabsProps = Widget & { tabNames?: string[] };
 
 export class Tabs extends BaseWidget {
-  constructor (props: Widget) {
+  tabNames: string[];
+  constructor (props: TabsProps) {
     super(props);
+    this.tabNames = props.tabNames;
   }
 
   static fromJson (object: Widget): Tabs {
     return new Tabs(object);
   }
 
+  toJson (): TabsProps {
+    return { ...super.toJson(), tabNames: this.tabNames || [] };
+  }
+
   getData (): void { return; }
 
-  render (children?: BaseWidget[]): JSX.Element {
+  render (children?: (Widget & { renderedElement: JSX.Element })[]): JSX.Element {
     if (!children) {
       throw new Error('Children are not defined!');
     }
 
-    const nonTabKiddos = children.filter(c => c.type !== 'Tab');
-    if (!isEmpty(nonTabKiddos)) {
-      throw new Error(`Found non-tab child(ren). ${nonTabKiddos.map(c => '\niwidget id: ' + c.id)}`);
+    if (this.tabNames.length !== children.length) {
+      throw new Error('Mismatch between tabName and children lengths');
     }
 
     return (
       <ChakraTabs>
         <ChakraTabList>
-          {(children as Tab[]).map((child: Tab) => (
-            <ChakraTab>{child.tabDisplayName}</ChakraTab>
+          {(this.tabNames).map(tabName => (
+            <ChakraTab>{tabName}</ChakraTab>
           ))}
         </ChakraTabList>
         <ChakraTabPanels>
           {children.map(tab => (
             <ChakraTabPanel>
-              {tab.render()}
+              {tab.renderedElement}
             </ChakraTabPanel>
           ))}
         </ChakraTabPanels>
