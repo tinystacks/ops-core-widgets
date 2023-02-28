@@ -1,3 +1,3 @@
-export * from './markdown';
-export * from './tab-panel';
-export * from './tab';
+export * from './markdown.js';
+export * from './tabs.js';
+export * from './column-panel.js';
