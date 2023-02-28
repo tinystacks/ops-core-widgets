@@ -1,90 +1,35 @@
-import { Widget } from '@tinystacks/ops-core';
-import { h } from 'preact';
+import { BaseWidget } from '@tinystacks/ops-core';
+import { Widget } from '@tinystacks/ops-model';
+import React from 'react';
+import { default as ReactMarkdown } from 'react-markdown';
+import { default as ChakraUIRenderer } from 'chakra-ui-markdown-renderer';
+import { Box } from '@chakra-ui/react';
 
-/* Holding onto this to replace use of any below
-type MarkdownType = {
-  id: string,
-  displayName: string,
-  type: string,
-  text: string,
-  showDisplayName?: boolean,
-  description?: string,
-  showDescription?: boolean,
-  providerId: string
-}
-*/
+type MarkdownProps = Widget & { markdown: string }
 
-export class Markdown extends Widget {
-  text: string;
-
-  constructor (
-    id: string,
-    displayName: string,
-    type: string,
-    text: string,
-    showDisplayName?: boolean,
-    description?: string,
-    showDescription?: boolean
-  ) {
-    super(
-      id,
-      displayName,
-      type,
-      '',
-      showDisplayName,
-      description,
-      showDescription
-    );
-    this.text = text;
+export class Markdown extends BaseWidget {
+  markdown: string;
+    
+  constructor (props: MarkdownProps) {
+    super(props);
+    this.markdown = props.markdown;
   }
 
-  static fromJson (object: any): Markdown {
-    const {
-      id,
-      displayName,
-      type,
-      text,
-      showDisplayName,
-      description,
-      showDescription
-    } = object;
-    return new Markdown(
-      id,
-      displayName,
-      type,
-      text,
-      showDisplayName,
-      description,
-      showDescription
-    );
+  static fromJson (object: MarkdownProps): Markdown {
+    return new Markdown(object);
   }
 
   toJson (): any {
-    const {
-      id,
-      displayName,
-      type,
-      text,
-      showDisplayName,
-      description,
-      showDescription,
-      providerId
-    } = this;
-    return {
-      id,
-      displayName,
-      type,
-      text,
-      showDisplayName,
-      description,
-      showDescription,
-      providerId
-    };
+    return { ...super.toJson(), markdown: this.markdown };
   }
 
   getData (): void { return; }
   
   render (): JSX.Element {
-    return <div>{this.text}</div>;
+    return (
+      <Box className='paddedWidgetContents'>
+        <ReactMarkdown components={ChakraUIRenderer()} children={this.markdown} skipHtml />
+      </Box>
+    );
   }
 }

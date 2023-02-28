@@ -1,3 +1,3 @@
-export * from './widgets//markdown';
-export * from './widgets/tab-panel';
-export * from './widgets/tab';
+export * from './widgets/markdown.js';
+export * from './widgets/tabs.js';
+export * from './widgets/column-panel.js';
