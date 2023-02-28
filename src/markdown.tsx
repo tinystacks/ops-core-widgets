@@ -3,6 +3,7 @@ import { Widget } from '@tinystacks/ops-model';
 import React from 'react';
 import { default as ReactMarkdown } from 'react-markdown';
 import { default as ChakraUIRenderer } from 'chakra-ui-markdown-renderer';
+import { Box } from '@chakra-ui/react';
 
 type MarkdownProps = Widget & { markdown: string }
 
@@ -26,11 +27,9 @@ export class Markdown extends BaseWidget {
   
   render (): JSX.Element {
     return (
-      <div style={{ padding: '20px', width: '100%' }}>
-        <div className='widgetContainer'>
-          <ReactMarkdown components={ChakraUIRenderer()} children={this.markdown} skipHtml />
-        </div>
-      </div>
+      <Box className='paddedWidgetContents'>
+        <ReactMarkdown components={ChakraUIRenderer()} children={this.markdown} skipHtml />
+      </Box>
     );
   }
 }

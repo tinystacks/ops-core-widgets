@@ -1,3 +1,4 @@
+import { Box } from '@chakra-ui/react';
 import { BaseWidget } from '@tinystacks/ops-core';
 import { Widget } from '@tinystacks/ops-model';
 import React from 'react';
@@ -14,9 +15,9 @@ export class ColumnPanel extends BaseWidget {
     }
 
     return (
-      <div>
+      <Box className='widgetContainer'>
         {children.map(c => <div key={c.id}>{c.renderedElement}</div>)}
-      </div>
+      </Box>
     );
   }
 }

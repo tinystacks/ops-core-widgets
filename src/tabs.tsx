@@ -5,7 +5,6 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Widget } from '@tinystacks/ops-model';
-import isEmpty from 'lodash.isempty';
 
 type TabsProps = Widget & { tabNames?: string[] };
 
@@ -36,15 +35,15 @@ export class Tabs extends BaseWidget {
     }
 
     return (
-      <ChakraTabs>
-        <ChakraTabList>
+      <ChakraTabs style={{ width: '100%' }}>
+        <ChakraTabList style={{ width: '100%' }}>
           {(this.tabNames).map(tabName => (
             <ChakraTab>{tabName}</ChakraTab>
           ))}
         </ChakraTabList>
         <ChakraTabPanels>
           {children.map(tab => (
-            <ChakraTabPanel>
+            <ChakraTabPanel className='widgetContainer'>
               {tab.renderedElement}
             </ChakraTabPanel>
           ))}
