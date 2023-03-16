@@ -81,15 +81,9 @@ spec:
         environmentVariables:
           description: A set of Key-Value pairs that set the environment
           example: >
-            A CLI defined as
-            ExampleCli:
-              displayName: example
-              type: Cli
-              environmentVariables:
-                VAR1: 10,
-                VAR2: 9
-              command: 'echo $VAR1'
-            Would result in '10'.
+            environmentVariables:
+              VAR1: 10
+              VAR2: 9
           type: object
             additionalProperties:
               type: string
