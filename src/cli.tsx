@@ -4,7 +4,7 @@ import { BaseProvider, BaseWidget } from '@tinystacks/ops-core';
 import { Box, Button, Code, Heading, HStack, Spacer, Stack } from '@chakra-ui/react';
 import isEmpty from 'lodash.isempty';
 import join from 'lodash.join';
-import CliEnvironmentProvider from './cli-environment-provider.js';
+import { CliEnvironmentProvider } from './cli-environment-provider.js';
 
 type CliProps = Widget & {
   command: string
