@@ -1,0 +1,121 @@
+spec:
+  widgets:
+    Panel:
+      description: >
+        This widget renders multiple internal widgets in a single direction, either vertical or horizontal
+      props:
+        displayName:
+          type: string
+          required: true
+        children:
+          type: array
+          items:
+            Widget
+          required: true
+          description: The widgets to render in the panel
+        orientation:
+          type:
+            oneOf:
+              - vertical
+              - horizontal
+          required: false
+          default: vertical
+          description: direction in which to lay out children widgets
+    Tabs:
+      description: >
+        This widget renders multiple internal widgets in a tab view. Combine with panel or grid to make robust views.
+      props:
+        displayName:
+          type: string
+          required: true
+        children:
+          type: array
+          items:
+            Widget
+          required: true
+          description: The widgets to render in the each respective tab.
+        tabNames:
+          type: array
+          items:
+            string
+          required: true
+          description: Tab names for each respective tab widget.
+    Grid:
+      description: >
+        This widget renders multiple internal widgets in a grid
+      props:
+        displayName:
+          type: string
+          required: true
+        children:
+          type: array
+          items:
+            Widget
+          required: true
+          description: The widgets to render in the panel
+        columns:
+          type: number
+          required: false
+          default: 2
+          description: The number of columns to render
+    Markdown:
+      description: >
+        This widget renders markdown.
+      props:
+        displayName:
+          type: string
+          required: true
+        markdown:
+          type: string
+          required: true
+          description: The markdown to render
+    Cli:
+      description: >
+        This widget runs a bash command. The command may be multiple commands separated by ';'
+        You can also reference scripts that exist in the same directory as your config.
+
+      props:
+        displayName:
+          type: string
+          required: true
+        environmentVariables:
+          description: A set of Key-Value pairs that set the environment
+          example: >
+            A CLI defined as
+            ExampleCli:
+              displayName: example
+              type: Cli
+              environmentVariables:
+                VAR1: 10,
+                VAR2: 9
+              command: 'echo $VAR1'
+            Would result in '10'.
+          type: object
+          additionalProperties:
+            type: string
+          required: false
+        providers:
+          description: >
+            A list of providers. Providers will only be used if they implement CliEnvironmentProvider.
+            Each environment variable from compatible providers will be exported to the shell.
+          type: array
+          items:
+            type: Provider
+          required: false
+        command:
+          description: A semi-colon seperated set of commands.
+          type: string
+          required: true
+        runOnStart:
+          description: >
+            Whether or not to run the command when the dashboard and widget are first rendered.
+            If disabled, the command will not run until the run button is pressed.
+          type: boolean
+          default: false
+          required: false
+      data:
+        commandResult:
+          stdout:
+            type: string
+          stderr:
+            type: string
