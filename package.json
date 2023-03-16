@@ -17,6 +17,7 @@
     "clean": "rm -rf ./dist || true; rm *.tgz || true; rm -rf ./build;",
     "clean-build": "npm run clean; npm run build",
     "hard-clean": "npm run clean; rm -rf node_modules; rm package-lock.json",
+    "install-remote": "npm i --@tinystacks:registry=https://registry.npmjs.org",
     "lint": "./node_modules/.bin/eslint ./src",
     "lint-fix": "./node_modules/.bin/eslint --fix ./src",
     "lint-tests": "./node_modules/.bin/eslint --config .eslintrc.test.json ./test",
@@ -55,8 +56,8 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
-    "@tinystacks/ops-core": "0.0.0",
-    "@tinystacks/ops-model": "0.0.0",
+    "@tinystacks/ops-core": "^0.0.0",
+    "@tinystacks/ops-model": "^0.0.0",
     "chakra-ui-markdown-renderer": "^4.1.0",
     "lodash.isempty": "^4.4.0",
     "react": "^18.2.0",
