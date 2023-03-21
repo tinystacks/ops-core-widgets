@@ -1,0 +1,14 @@
+{
+  "presets": [
+    ["@babel/preset-react"],
+    [
+      "@babel/preset-env",
+      {
+        "modules": "auto"
+      },
+      "jest"
+    ],
+    ["@babel/preset-flow"]
+  ],
+  "plugins": ["@babel/plugin-transform-modules-commonjs"]
+}
