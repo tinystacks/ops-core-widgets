@@ -39,7 +39,7 @@ export class Panel extends BaseWidget {
     }
 
     return (
-      <HStack className='widgetContainer'>
+      <HStack className='widgetContainer' data-testid='horizontal-panel'>
         {children.map(c => <Box key={c.id}>{c.renderedElement}</Box>)}
       </HStack>
     );

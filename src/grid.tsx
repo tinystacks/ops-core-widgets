@@ -1,12 +1,13 @@
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { BaseWidget } from '@tinystacks/ops-core';
 import { Widget } from '@tinystacks/ops-model';
+import isEmpty from 'lodash.isempty';
 import React from 'react';
 
 export type GridProps = Widget & { columns?: number };
 
 export class Grid extends BaseWidget {
-  columns?: number;
+  columns: number | undefined;
   constructor (props: GridProps) {
     super(props);
     this.columns = props.columns;
@@ -19,18 +20,18 @@ export class Grid extends BaseWidget {
   toJson () {
     return {
       ...super.toJson(),
-      orientation: this.columns
+      columns: this.columns
     };
   }
 
   getData (): void { return; }
   render (children?: (Widget & { renderedElement: JSX.Element })[]): JSX.Element {
-    if (!children) {
+    if (!children || isEmpty(children)) {
       throw new Error('Children are not defined!');
     }
 
     return (
-      <SimpleGrid className='widgetContainer' columns={this.columns || 2}>
+      <SimpleGrid className='widgetContainer' data-testid='grid-widget' columns={this.columns || 2}>
         {children.map(c => <Box key={c.id}>{c.renderedElement}</Box>)}
       </SimpleGrid>
     );

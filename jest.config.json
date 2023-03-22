@@ -27,6 +27,6 @@
     "^.+\\.[jt]sx$": "babel-jest"
   },
   "transformIgnorePatterns": [
-    "\\/node_modules\\/(?!(@tinystacks\\/))"
+    "\\/node_modules\\/(?!((@tinystacks|react-markdown)\\/))"
   ]
 }

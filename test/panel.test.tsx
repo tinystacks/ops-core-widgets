@@ -1,7 +1,6 @@
 import React from "react";
 import { Panel } from '../src/panel';
-import { Box, Stack } from "@chakra-ui/react";
-import { render, fireEvent, cleanup } from '@testing-library/react';
+import { render, cleanup, screen } from '@testing-library/react';
 
 let container;
 
@@ -71,7 +70,7 @@ describe('Panel', () => {
       expect(error.message).toBe("Children are not defined!");
     });
 
-    it ('render renders outer stack and inner element', () => {
+    it ('render renders outer stack and inner element', async () => {
       const panelProps = {
         id: 'MockWidget',
         type: 'Panel',
@@ -83,11 +82,37 @@ describe('Panel', () => {
         id: 'FakeWidget',
         type: 'Fake',
         displayName: 'fake widget',
-        renderedElement: <div>Contents</div>
+        renderedElement: <div data-testid='test-contents'>Contents</div>
       }]);
       render(renderedPanel, container);
-      expect(container.textContent).toBe("Contents");
+      const testDiv = await (screen.findByTestId('test-contents'));
+      expect(testDiv.textContent).toBe("Contents");
+
+      const panelDiv = await screen.findByTestId('vertical-panel');
+      expect(panelDiv.classList.contains('chakra-stack')).toBeTruthy();
     });
-    
+
+    it ('render renders outer stack and inner element on horiz stack', async () => {
+      const panelProps = {
+        id: 'MockWidget',
+        type: 'Panel',
+        displayName: 'mock widget',
+        orientation: 'horizontal'
+      };
+  
+      const panel = Panel.fromJson(panelProps);
+      const renderedPanel = panel.render([{
+        id: 'FakeWidget',
+        type: 'Fake',
+        displayName: 'fake widget',
+        renderedElement: <div data-testid='test-contents'>Contents</div>
+      }]);
+      render(renderedPanel, container);
+      const testDiv = await (screen.findByTestId('test-contents'));
+      expect(testDiv.textContent).toBe("Contents");
+
+      const panelDiv = await screen.findByTestId('horizontal-panel');
+      expect(panelDiv.classList.contains('chakra-stack')).toBeTruthy();
+    });
   });
 });
