@@ -14,7 +14,7 @@
 			"statements": 90
 		}
 	},
-  "extensionsToTreatAsEsm": [".ts", ".tsx"],
+  "extensionsToTreatAsEsm": [".ts", ".tsx", ".jsx"],
   "globals": {
     "NODE_ENV": "test"
   },
@@ -27,6 +27,6 @@
     "^.+\\.[jt]sx$": "babel-jest"
   },
   "transformIgnorePatterns": [
-    "\\/node_modules\\/(?!((@tinystacks|react-markdown)\\/))"
+    "\\/node_modules\\/(?!((@tinystacks\\/|react-markdown)))"
   ]
 }
