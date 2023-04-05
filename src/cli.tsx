@@ -83,7 +83,7 @@ export class Cli extends BaseWidget {
       allEnvVars = { ...allEnvVars, ...cliEnv };
     }
 
-    allEnvVars = { ...allEnvVars, ...(this.environmentVariables || {}) };
+    allEnvVars = { ...allEnvVars, ...(this.environmentVariables || {}), PATH: process.env.PATH };
 
     commands.push(this.command);
     try {
