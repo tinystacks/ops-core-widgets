@@ -90,8 +90,8 @@ export class Cli extends BaseWidget {
       if (shouldRun) {
         const { stdout, stderr } = await execPromise(join(commands, ';'), { env: allEnvVars });
         this.commandResult = {
-          stdout: stdout,
-          stderr: stderr
+          stdout: stdout.trim(),
+          stderr: stderr.trim()
         };
         this.hasRun = true;
       } else if (overrides && overrides.clear === true) {
