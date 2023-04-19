@@ -23,7 +23,7 @@
   },
   "testEnvironment": "jest-environment-jsdom",
   "transform": {
-    "^.+\\.[jt]s": ["ts-jest", {
+    "^.+\\.[jt]s[x]": ["ts-jest", {
       "tsconfig": "tsconfig.test.json",
       "isolatedModules": true,
       "useESM": true
