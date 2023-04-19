@@ -11,9 +11,7 @@
     "url": "git+https://github.com/tinystacks/ops-core-widgets.git"
   },
   "scripts": {
-    "build": "npm run build:types && npm run build:js; rm dist/**/*.jsx",
-    "build:types": "tsc",
-    "build:js": "babel dist --out-dir dist --extensions \".js,.jsx\" --source-maps inline",
+    "build": "tsc",
     "clean": "rm -rf ./dist || true; rm *.tgz || true; rm -rf ./build;",
     "clean-build": "npm run clean; npm run build",
     "hard-clean": "npm run clean; rm -rf node_modules; rm package-lock.json",
