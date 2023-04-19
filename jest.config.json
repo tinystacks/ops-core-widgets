@@ -23,10 +23,13 @@
   },
   "testEnvironment": "jest-environment-jsdom",
   "transform": {
-    "^.+\\.[jt]s$": "babel-jest",
-    "^.+\\.[jt]sx$": "babel-jest"
+    "^.+\\.[jt]s": ["ts-jest", {
+      "tsconfig": "tsconfig.test.json",
+      "isolatedModules": true,
+      "useESM": true
+    }]
   },
   "transformIgnorePatterns": [
-    "\\/node_modules\\/(?!((@tinystacks\\/|react-markdown)))"
+    "\\/node_modules\\/(?!((@tinystacks\\/|react-markdown|chakra-ui-markdown-renderer)))"
   ]
 }

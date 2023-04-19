@@ -1,8 +1,14 @@
 import React from "react";
+// import { jest } from '@jest/globals'
 import { Markdown as MarkdownWidget, MarkdownProps } from '../src/markdown';
 import { render, cleanup, screen } from '@testing-library/react';
 
 let container;
+
+// const mockChakraUiRenderer = jest.fn();
+// jest.mock('chakra-ui-markdown-renderer', () => ({
+//   default: mockChakraUiRenderer
+// }));
 
 describe('Markdown', () => {
   afterEach(cleanup);
@@ -73,15 +79,12 @@ describe('Markdown', () => {
         displayName: 'mock widget',
         markdown: 'some markdown'
       };
-  
+      // mockChakraUiRenderer.mockReturnValue(undefined);
       const markdown = MarkdownWidget.fromJson(markdownProps);
       const renderedMarkdownWidget = markdown.render();
       render(renderedMarkdownWidget, container);
-      const testDiv = await (screen.findByTestId('test-contents'));
-      expect(testDiv.textContent).toBe("Contents");
-
-      const markdownDiv = await screen.findByTestId('vertical-markdown');
-      expect(markdownDiv.classList.contains('chakra-stack')).toBeTruthy();
+      const testDiv = await (screen.findByText('some markdown'));
+      expect(testDiv.textContent).toBe("some markdown");
     });
   });
 });
