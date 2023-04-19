@@ -5,7 +5,7 @@ import { default as ReactMarkdown } from 'react-markdown';
 import { default as ChakraUIRenderer } from 'chakra-ui-markdown-renderer';
 import { Box } from '@chakra-ui/react';
 
-type MarkdownProps = Widget & { markdown: string }
+export type MarkdownProps = Widget & { markdown: string }
 
 export class Markdown extends BaseWidget {
   markdown: string;
@@ -26,6 +26,9 @@ export class Markdown extends BaseWidget {
   getData (): void { return; }
   
   render (): JSX.Element {
+    if (!this.markdown) {
+      throw new Error('Markdown not provided. Please add a \'markdown\' field to your widget configuration.');
+    }
     return (
       <Box className='paddedWidgetContents'>
         <ReactMarkdown components={ChakraUIRenderer()} children={this.markdown} skipHtml />

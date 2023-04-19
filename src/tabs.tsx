@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { Widget } from '@tinystacks/ops-model';
+import isEmpty from 'lodash.isempty';
 
 type TabsProps = Widget & { tabNames?: string[] };
 
@@ -12,7 +13,7 @@ export class Tabs extends BaseWidget {
   tabNames: string[];
   constructor (props: TabsProps) {
     super(props);
-    this.tabNames = props.tabNames;
+    this.tabNames = props.tabNames || [];
   }
 
   static fromJson (object: Widget): Tabs {
@@ -20,13 +21,13 @@ export class Tabs extends BaseWidget {
   }
 
   toJson (): TabsProps {
-    return { ...super.toJson(), tabNames: this.tabNames || [] };
+    return { ...super.toJson(), tabNames: this.tabNames };
   }
 
   getData (): void { return; }
 
   render (children?: (Widget & { renderedElement: JSX.Element })[]): JSX.Element {
-    if (!children) {
+    if (!children || isEmpty(children)) {
       throw new Error('Children are not defined!');
     }
 
@@ -35,15 +36,15 @@ export class Tabs extends BaseWidget {
     }
 
     return (
-      <ChakraTabs style={{ width: '100%' }}>
+      <ChakraTabs style={{ width: '100%' }} data-testid='tabs'>
         <ChakraTabList style={{ width: '100%' }}>
           {(this.tabNames).map(tabName => (
-            <ChakraTab>{tabName}</ChakraTab>
+            <ChakraTab key={tabName + '-tabnames'}>{tabName}</ChakraTab>
           ))}
         </ChakraTabList>
         <ChakraTabPanels>
-          {children.map(tab => (
-            <ChakraTabPanel className='widgetContainer'>
+          {children.map((tab, i) => (
+            <ChakraTabPanel className='widgetContainer' key={this.tabNames[i] + '-tab'}>
               {tab.renderedElement}
             </ChakraTabPanel>
           ))}
