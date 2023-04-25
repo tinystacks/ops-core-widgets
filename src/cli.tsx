@@ -3,7 +3,6 @@ import { Widget } from '@tinystacks/ops-model';
 import { BaseProvider, BaseWidget } from '@tinystacks/ops-core';
 import { Box, Button, Code, Heading, HStack, Spacer, Stack } from '@chakra-ui/react';
 import isEmpty from 'lodash.isempty';
-import join from 'lodash.join';
 import { CliEnvironmentProvider } from './cli-environment-provider.js';
 
 type CliProps = Widget & {
@@ -88,7 +87,7 @@ export class Cli extends BaseWidget {
     commands.push(this.command);
     try {
       if (shouldRun) {
-        const { stdout, stderr } = await execPromise(join(commands, ';'), { env: allEnvVars });
+        const { stdout, stderr } = await execPromise(commands.join(';'), { env: allEnvVars });
         this.commandResult = {
           stdout: stdout.trim(),
           stderr: stderr.trim()
