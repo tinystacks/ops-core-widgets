@@ -33,6 +33,7 @@
     "prepare": "husky install"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^14.0.0",
     "@types/jest": "^29.4.0",
     "@types/lodash.get": "^4.4.7",
