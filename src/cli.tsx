@@ -87,7 +87,7 @@ export class Cli extends BaseWidget {
     commands.push(this.command);
     try {
       if (shouldRun) {
-        const { stdout, stderr } = await execPromise(commands.join(';'), { env: allEnvVars });
+        const { stdout, stderr } = await execPromise(commands.join(';'), { env: allEnvVars, shell: '/bin/bash' });
         this.commandResult = {
           stdout: stdout.trim(),
           stderr: stderr.trim()
