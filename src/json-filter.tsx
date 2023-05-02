@@ -1,5 +1,5 @@
-import { Widget  } from '@tinystacks/ops-model';
-import { BaseWidget } from '@tinystacks/ops-core';
+import { Widget, TinyStacksError as TinyStacksErrorType  } from '@tinystacks/ops-model';
+import { BaseWidget, TinyStacksError } from '@tinystacks/ops-core';
 import { Box, Stack } from '@chakra-ui/react';
 import get from 'lodash.get';
 import React from 'react';
@@ -63,11 +63,16 @@ export class JsonFilter extends BaseWidget {
             value
         });
       });
-      console.log('filetered json in getData: ', this.filteredJson);
       return;
-    } catch(e){
-      console.error(e);
-      throw new Error(`Error getting data for json tree widger ${this.id}, ${e}`);
+    } catch (e) {
+      const error = e as Error;
+      console.error(error);
+      throw new TinyStacksError(
+        `Error getting data for json tree widget ${this.id}!`,
+        500,
+        error.stack,
+        TinyStacksErrorType.type.INTERNAL_SERVER_ERROR
+      );
     }
   }
 

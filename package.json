@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
+    "@tinystacks/ops-core": "file:../ops-core/tinystacks-ops-core-0.0.5.tgz",
     "@types/jest": "^29.4.0",
     "@types/lodash.get": "^4.4.7",
     "@types/lodash.isempty": "^4.4.7",
