@@ -66,7 +66,6 @@ export class JsonFilter extends BaseWidget {
       return;
     } catch (e) {
       const error = e as Error;
-      console.error(error);
       throw new TinyStacksError(
         `Error getting data for json tree widget ${this.id}!`,
         500,
