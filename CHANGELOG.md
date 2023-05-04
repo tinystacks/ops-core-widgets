@@ -1,3 +1,7 @@
+v0.0.10
+---
+- Update @tinystacks/ops-core
+ 
 v0.0.8
 ---
 
