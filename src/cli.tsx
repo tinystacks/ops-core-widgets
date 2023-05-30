@@ -3,7 +3,7 @@ import { Widget } from '@tinystacks/ops-model';
 import { BaseProvider, BaseWidget } from '@tinystacks/ops-core';
 import { Box, Button, Code, Heading, HStack, Spacer, Stack } from '@chakra-ui/react';
 import isEmpty from 'lodash.isempty';
-import { CliEnvironmentProvider } from './cli-environment-provider.js';
+import { CliEnvironmentProvider } from './providers/cli-environment-provider.js';
 
 type CliProps = Widget & {
   command: string
