@@ -174,7 +174,7 @@ class Github extends BaseWidget implements GithubType {
                     trigger
                   } = action;
                   return (
-                    <Tr>
+                    <Tr key={name}>
                       <Td><Link color='purple' href={url} target='_blank'>{name}</Link></Td>
                       <Td>{status}</Td>
                       <Td>{lastExecuted ? ` ${dayjs(new Date(lastExecuted)).format('M/D/YYYY h:mA')}` : ''}</Td>

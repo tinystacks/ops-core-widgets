@@ -54,7 +54,7 @@ export class JsonFilter extends BaseWidget {
   getData (): void {
     this.filteredJson = [];
     try{ 
-      this.paths.forEach(({ path, pathDisplayName }) => { 
+      this.paths?.forEach(({ path, pathDisplayName }) => { 
         const value = get(this.jsonObject, path);
         this.filteredJson.push({
           pathDisplayName,

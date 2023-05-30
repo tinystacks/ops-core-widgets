@@ -27,8 +27,8 @@
     "setup-test-lint": "node ./scripts/setup-test-lint.js",
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
     "test-cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage",
-    "test-file": "NODE_OPTIONS=--experimental-vm-modules npx jest ./test/github.test.tsx",
-    "test-file-cov": "NODE_OPTIONS=--experimental-vm-modules npx jest ./testindex.test.ts --coverage",
+    "test-file": "NODE_OPTIONS=--experimental-vm-modules npx jest ./test/filter.test.tsx",
+    "test-file-cov": "NODE_OPTIONS=--experimental-vm-modules npx jest ./test/filter.test.tsx --coverage",
     "view-test-cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage || true && open coverage/lcov-report/index.html",
     "prepare": "husky install"
   },
