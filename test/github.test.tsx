@@ -10,6 +10,11 @@ jest.unstable_mockModule('@octokit/core', () => ({
   Octokit: mockOctokit
 }));
 
+const mockDayJs = jest.fn();
+const mockFormat = jest.fn();
+
+jest.mock('dayjs', () => mockDayJs)
+
 const { Github } = await import('../src/github');
 const { GithubCredentialsProvider } = await import('../src/providers/github-credentials-provider');
 
@@ -18,7 +23,11 @@ describe('Github', () => {
     mockOctokit.mockReturnValue({
       request: mockRequest,
       graphql: mockGraphql
-    })
+    });
+    mockDayJs.mockReturnValue({
+      format: mockFormat
+    });
+    mockFormat.mockReturnValue('5/30/2023 10:45AM');
   });
   afterEach(() => {
     cleanup();
