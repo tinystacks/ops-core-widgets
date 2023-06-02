@@ -1,3 +1,8 @@
+v0.0.12
+---
+- Add GithubCredentialsProvider
+- Add Github widget with CI/CD view
+ 
 v0.0.11
 ---
 
