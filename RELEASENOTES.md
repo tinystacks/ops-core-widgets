@@ -1,1 +1,2 @@
-
+- Add GithubCredentialsProvider
+- Add Github widget with CI/CD view

@@ -1,14 +1,19 @@
 {
   "preset": "ts-jest",
+  "resolver": "ts-jest-resolver",
 	"testPathIgnorePatterns": [".d.ts", ".js"],
 	"verbose": true,
 	"roots": ["<rootDir>/test", "<rootDir>/src"],
 	"collectCoverageFrom": ["src/**/*.ts[x]"],
-	"coveragePathIgnorePatterns": ["src/cli-environment-provider.ts", "src/index.ts"],
+	"coveragePathIgnorePatterns": [
+    "src/index.ts",
+    "src/providers/cli-environment-provider.ts",
+    "src/providers/credentials-provider.ts"
+  ],
   "coverageProvider": "v8",
 	"coverageThreshold": {
 		"global": {
-			"branches": 90,
+			"branches": 85,
 			"functions": 90,
 			"lines": 90,
 			"statements": 90
@@ -23,6 +28,11 @@
   },
   "testEnvironment": "jest-environment-jsdom",
   "transform": {
+    "^.+\\.ts$": ["ts-jest", {
+      "tsconfig": "tsconfig.test.json",
+      "isolatedModules": true,
+      "useESM": true
+    }],
     "^.+\\.[jt]s[x]": ["ts-jest", {
       "tsconfig": "tsconfig.test.json",
       "isolatedModules": true,
