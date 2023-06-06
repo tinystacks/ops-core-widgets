@@ -2,7 +2,7 @@ import { Provider, Widget } from '@tinystacks/ops-model';
 
 export type GithubCredentials = {
   token: string;
-}
+};
 
 export type GithubCredentialsProvider = Provider & {
   credentials: GithubCredentials;
@@ -18,7 +18,7 @@ export type Cli = Widget & {
   runOnStart?: boolean
   hasRun?: boolean
   environmentVariables?: { [key: string]: string }
-}
+};
 
 export type GithubAction = {
   name: string;
@@ -26,7 +26,7 @@ export type GithubAction = {
   status: string;
   lastExecuted: Date;
   url: string;
-}
+};
 
 export type Github = Widget & {
   host?: string;
@@ -47,9 +47,9 @@ export type JsonFilter = Widget & {
     pathDisplayName: string,
     json: any
   }[]
-}
+};
 
-export type Markdown = Widget & { markdown: string }
+export type Markdown = Widget & { markdown: string };
 
 export type Panel = Widget & { orientation?: 'horizontal' | 'vertical' };
 
