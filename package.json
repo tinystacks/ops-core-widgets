@@ -11,7 +11,7 @@
     "url": "git+https://github.com/tinystacks/ops-core-widgets.git"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && npm run types",
     "clean": "rm -rf ./dist || true; rm *.tgz || true; rm -rf ./build;",
     "clean-build": "npm run clean; npm run build",
     "hard-clean": "npm run clean; rm -rf node_modules; rm package-lock.json",
@@ -30,7 +30,8 @@
     "test-file": "NODE_OPTIONS=--experimental-vm-modules npx jest ./test/filter.test.tsx",
     "test-file-cov": "NODE_OPTIONS=--experimental-vm-modules npx jest ./test/filter.test.tsx --coverage",
     "view-test-cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage || true && open coverage/lcov-report/index.html",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "types": "npx typescript-json-schema './src/types.ts' '*' --out ./dist/types.json --required --esModuleInterop"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",
@@ -42,6 +43,7 @@
     "@types/lodash.get": "^4.4.7",
     "@types/lodash.isempty": "^4.4.7",
     "@types/lodash.join": "^4.0.7",
+    "@types/node": "^20.2.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
@@ -59,7 +61,8 @@
     "react-dom": "^18.2.0",
     "ts-jest": "^29.0.5",
     "ts-jest-resolver": "^2.0.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "typescript-json-schema": "^0.57.0"
   },
   "dependencies": {
     "@octokit/core": "^4.2.1",

@@ -1,20 +1,9 @@
-import { Widget, TinyStacksError as TinyStacksErrorType  } from '@tinystacks/ops-model';
+import React from 'react';
+import get from 'lodash.get';
+import { TinyStacksError as TinyStacksErrorType  } from '@tinystacks/ops-model';
 import { BaseWidget, TinyStacksError } from '@tinystacks/ops-core';
 import { Box, Stack } from '@chakra-ui/react';
-import get from 'lodash.get';
-import React from 'react';
-
-type JsonFilterProps = Widget & {
-  jsonObject: { [key: string]: any; },
-  paths: {
-    pathDisplayName: string,
-    path: string
-  }[],
-  filteredJson?: {
-    pathDisplayName: string,
-    json: any
-  }[]
-}
+import { JsonFilter as JsonFilterProps } from './types.js';
 
 export class JsonFilter extends BaseWidget {
   static type = 'JsonFilter';

@@ -1,13 +1,12 @@
+import React from 'react';
+import isEmpty from 'lodash.isempty';
 import { BaseWidget } from '@tinystacks/ops-core';
 import {
   Tabs as ChakraTabs, TabList as ChakraTabList, TabPanel as ChakraTabPanel, Tab as ChakraTab,
   TabPanels as ChakraTabPanels
 } from '@chakra-ui/react';
-import React from 'react';
 import { Widget } from '@tinystacks/ops-model';
-import isEmpty from 'lodash.isempty';
-
-type TabsProps = Widget & { tabNames?: string[] };
+import { Tabs as TabsProps } from './types.js';
 
 export class Tabs extends BaseWidget {
   tabNames: string[];

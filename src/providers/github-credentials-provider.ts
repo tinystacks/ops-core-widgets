@@ -1,20 +1,11 @@
 import { BaseProvider } from '@tinystacks/ops-core';
+import { OtherProperties } from '@tinystacks/ops-core/dist/types.js';
 import { CliEnvironmentProvider } from './cli-environment-provider.js';
 import { CredentialsProvider } from './credentials-provider.js';
-import { OtherProperties } from '@tinystacks/ops-core/dist/types.js';
-import { Provider } from '@tinystacks/ops-model';
-
-type GithubCredentials = {
-  token: string;
-}
-
-type GithubCredentialsProviderType = Provider & {
-  credentials: GithubCredentials;
-  /**
-   * The GitHub hostname to target.  Set this for Github Enterprise.
-   */
-  host?: string;
-};
+import {
+  GithubCredentials,
+  GithubCredentialsProvider as GithubCredentialsProviderType
+} from '../types.js';
 
 
 class GithubCredentialsProvider extends BaseProvider implements CliEnvironmentProvider, CredentialsProvider, GithubCredentialsProviderType {
@@ -55,7 +46,5 @@ class GithubCredentialsProvider extends BaseProvider implements CliEnvironmentPr
 }
 
 export {
-  GithubCredentialsProviderType,
-  GithubCredentials,
   GithubCredentialsProvider
 };
