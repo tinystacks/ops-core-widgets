@@ -3,7 +3,7 @@ import isEmpty from 'lodash.isempty';
 import { Box, HStack, Stack } from '@chakra-ui/react';
 import { BaseWidget } from '@tinystacks/ops-core';
 import { Widget } from '@tinystacks/ops-model';
-import { Panel as PanelProps } from './types.js';
+import { Panel as PanelProps } from './ops-types.js';
 
 export class Panel extends BaseWidget {
   orientation: string;

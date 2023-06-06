@@ -8,4 +8,4 @@ export * from './providers/github-credentials-provider.js';
 export * from './github.js';
 export * from './cli.js';
 export * from './json-filter.js';
-export * as Types from './types.js';
+export * as OpsTypes from './ops-types.js';

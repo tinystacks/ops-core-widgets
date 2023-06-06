@@ -3,7 +3,7 @@ import get from 'lodash.get';
 import { TinyStacksError as TinyStacksErrorType  } from '@tinystacks/ops-model';
 import { BaseWidget, TinyStacksError } from '@tinystacks/ops-core';
 import { Box, Stack } from '@chakra-ui/react';
-import { JsonFilter as JsonFilterProps } from './types.js';
+import { JsonFilter as JsonFilterProps } from './ops-types.js';
 
 export class JsonFilter extends BaseWidget {
   static type = 'JsonFilter';

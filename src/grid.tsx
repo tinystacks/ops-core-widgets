@@ -3,7 +3,7 @@ import isEmpty from 'lodash.isempty';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { BaseWidget } from '@tinystacks/ops-core';
 import { Widget } from '@tinystacks/ops-model';
-import { Grid as GridProps } from './types.js';
+import { Grid as GridProps } from './ops-types.js';
 
 export class Grid extends BaseWidget {
   columns: number | undefined;

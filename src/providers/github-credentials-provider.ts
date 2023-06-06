@@ -5,7 +5,7 @@ import { CredentialsProvider } from './credentials-provider.js';
 import {
   GithubCredentials,
   GithubCredentialsProvider as GithubCredentialsProviderType
-} from '../types.js';
+} from '../ops-types.js';
 
 
 class GithubCredentialsProvider extends BaseProvider implements CliEnvironmentProvider, CredentialsProvider, GithubCredentialsProviderType {

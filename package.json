@@ -31,7 +31,7 @@
     "test-file-cov": "NODE_OPTIONS=--experimental-vm-modules npx jest ./test/filter.test.tsx --coverage",
     "view-test-cov": "NODE_OPTIONS=--experimental-vm-modules npx jest --coverage || true && open coverage/lcov-report/index.html",
     "prepare": "husky install",
-    "types": "npx typescript-json-schema './src/types.ts' '*' --out ./dist/ops-types.json --required --esModuleInterop"
+    "types": "npx typescript-json-schema './src/ops-types.ts' '*' --out ./dist/ops-types.json --required --esModuleInterop"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",

@@ -3,7 +3,7 @@ import isEmpty from 'lodash.isempty';
 import { BaseProvider, BaseWidget } from '@tinystacks/ops-core';
 import { Box, Button, Code, Heading, HStack, Spacer, Stack } from '@chakra-ui/react';
 import { CliEnvironmentProvider } from './providers/cli-environment-provider.js';
-import { Cli as CliProps } from './types.js';
+import { Cli as CliProps } from './ops-types.js';
 
 type CliOverrides = {
   clear?: boolean,

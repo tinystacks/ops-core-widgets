@@ -20,7 +20,7 @@ import {
 import { GithubCredentialsProvider } from './providers/github-credentials-provider.js';
 import { findProvider } from './utils/find-provider.js';
 import KeyValueStat from './components/key-value-stat.js';
-import { GithubAction, Github as GithubType } from './types.js';
+import { GithubAction, Github as GithubType } from './ops-types.js';
 
 type GithubOverrides = {
   host?: string;

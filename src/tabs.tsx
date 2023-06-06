@@ -6,7 +6,7 @@ import {
   TabPanels as ChakraTabPanels
 } from '@chakra-ui/react';
 import { Widget } from '@tinystacks/ops-model';
-import { Tabs as TabsProps } from './types.js';
+import { Tabs as TabsProps } from './ops-types.js';
 
 export class Tabs extends BaseWidget {
   tabNames: string[];

@@ -3,7 +3,7 @@ import { BaseWidget } from '@tinystacks/ops-core';
 import { default as ReactMarkdown } from 'react-markdown';
 import { default as ChakraUIRenderer } from 'chakra-ui-markdown-renderer';
 import { Box } from '@chakra-ui/react';
-import { Markdown as MarkdownProps } from './types.js';
+import { Markdown as MarkdownProps } from './ops-types.js';
 
 export class Markdown extends BaseWidget {
   markdown: string;
