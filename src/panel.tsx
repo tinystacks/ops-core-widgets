@@ -1,10 +1,9 @@
+import React from 'react';
+import isEmpty from 'lodash.isempty';
 import { Box, HStack, Stack } from '@chakra-ui/react';
 import { BaseWidget } from '@tinystacks/ops-core';
 import { Widget } from '@tinystacks/ops-model';
-import isEmpty from 'lodash.isempty';
-import React from 'react';
-
-export type PanelProps = Widget & { orientation?: 'horizontal' | 'vertical' };
+import { Panel as PanelProps } from './ops-types.js';
 
 export class Panel extends BaseWidget {
   orientation: string;

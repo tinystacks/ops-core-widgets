@@ -1,1 +1,2 @@
-
+- Refactor types
+- Export JSON schema

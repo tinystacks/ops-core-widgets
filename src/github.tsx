@@ -20,21 +20,7 @@ import {
 import { GithubCredentialsProvider } from './providers/github-credentials-provider.js';
 import { findProvider } from './utils/find-provider.js';
 import KeyValueStat from './components/key-value-stat.js';
-
-type Action = {
-  name: string;
-  trigger: string;
-  status: string;
-  lastExecuted: Date;
-  url: string;
-}
-
-type GithubType = Widget & {
-  host?: string;
-  organization: string;
-  repository: string;
-  actions?: Action[];
-};
+import { GithubAction, Github as GithubType } from './ops-types.js';
 
 type GithubOverrides = {
   host?: string;
@@ -46,7 +32,7 @@ class Github extends BaseWidget implements GithubType {
   host?: string;
   organization: string;
   repository: string;
-  actions?: Action[];
+  actions?: GithubAction[];
 
   constructor (props: GithubType) {
     super(props);
@@ -192,6 +178,5 @@ class Github extends BaseWidget implements GithubType {
 }
 
 export {
-  GithubType,
   Github
 };
