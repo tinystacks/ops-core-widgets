@@ -1,3 +1,8 @@
+v0.0.13
+---
+- Refactor types
+- Export JSON schema
+ 
 v0.0.12
 ---
 - Add GithubCredentialsProvider
