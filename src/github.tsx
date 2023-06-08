@@ -22,7 +22,7 @@ import { findProvider } from './utils/find-provider.js';
 import KeyValueStat from './components/key-value-stat.js';
 import { GithubAction, Github as GithubType } from './ops-types.js';
 
-type GithubOverrides = {
+export type GithubOverrides = {
   host?: string;
   organization?: string;
   repository?: string;

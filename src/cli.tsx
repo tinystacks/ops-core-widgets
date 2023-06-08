@@ -5,7 +5,7 @@ import { Box, Button, Code, Heading, HStack, Spacer, Stack } from '@chakra-ui/re
 import { CliEnvironmentProvider } from './providers/cli-environment-provider.js';
 import { Cli as CliProps } from './ops-types.js';
 
-type CliOverrides = {
+export type CliOverrides = {
   clear?: boolean,
   run?: boolean
 }
