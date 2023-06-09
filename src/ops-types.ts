@@ -1,43 +1,43 @@
 import { Provider, Widget } from '@tinystacks/ops-model';
 
-export type GithubCredentials = {
+export interface GithubCredentials {
   token: string;
-};
+}
 
-export type GithubCredentialsProvider = Provider & {
+export interface GithubCredentialsProvider extends Provider {
   credentials: GithubCredentials;
   /**
    * The GitHub hostname to target.  Set this for Github Enterprise.
    */
   host?: string;
-};
+}
 
-export type Cli = Widget & {
+export interface Cli extends Widget  {
   command: string
   commandResult?: { stdout: string, stderr: string };
   runOnStart?: boolean
   hasRun?: boolean
   environmentVariables?: { [key: string]: string }
-};
+}
 
-export type GithubAction = {
+export interface GithubAction {
   name: string;
   trigger: string;
   status: string;
   lastExecuted: Date;
   url: string;
-};
+}
 
-export type Github = Widget & {
+export interface Github extends Widget  {
   host?: string;
   organization: string;
   repository: string;
   actions?: GithubAction[];
-};
+}
 
-export type Grid = Widget & { columns?: number };
+export interface Grid extends Widget  { columns?: number }
 
-export type JsonFilter = Widget & {
+export interface JsonFilter extends Widget  {
   jsonObject: { [key: string]: any; },
   paths: {
     pathDisplayName: string,
@@ -47,10 +47,10 @@ export type JsonFilter = Widget & {
     pathDisplayName: string,
     json: any
   }[]
-};
+}
 
-export type Markdown = Widget & { markdown: string };
+export interface Markdown extends Widget  { markdown: string }
 
-export type Panel = Widget & { orientation?: 'horizontal' | 'vertical' };
+export interface Panel extends Widget  { orientation?: 'horizontal' | 'vertical' }
 
-export type Tabs = Widget & { tabNames?: string[] };
+export interface Tabs extends Widget  { tabNames?: string[] }
