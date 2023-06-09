@@ -1,3 +1,7 @@
+v0.0.14
+---
+- types -> interfaces for docs generation
+ 
 v0.0.13
 ---
 - Refactor types
