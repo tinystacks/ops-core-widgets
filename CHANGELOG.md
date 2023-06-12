@@ -1,3 +1,7 @@
+v0.0.15
+---
+- Add yaml config examples to types in tsdoc comments
+ 
 v0.0.14
 ---
 - types -> interfaces for docs generation
