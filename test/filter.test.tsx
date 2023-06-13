@@ -153,7 +153,7 @@ describe('JsonFilter', () => {
 
         expect(thrownError instanceof TinyStacksError).toBe(true);
         expect(thrownError).toHaveProperty('name', 'TinyStacksError');
-        expect(thrownError).toHaveProperty('type', 'InternalServerError');
+        expect(thrownError).toHaveProperty('type', 'Internal Server Error');
         expect(thrownError).toHaveProperty('status', 500);
         expect(thrownError).toHaveProperty('message', 'Error getting data for json tree widget fromJson!');
       }
