@@ -1,6 +1,6 @@
 import React from 'react';
 import isEmpty from 'lodash.isempty';
-import { BaseWidget } from '@tinystacks/ops-core';
+import { Controllers, Models, Views } from '@tinystacks/ops-core';
 import {
   Tabs as ChakraTabs, TabList as ChakraTabList, TabPanel as ChakraTabPanel, Tab as ChakraTab,
   TabPanels as ChakraTabPanels
@@ -8,7 +8,11 @@ import {
 import { Widget } from '@tinystacks/ops-model';
 import { Tabs as TabsProps } from './ops-types.js';
 
-export class Tabs extends BaseWidget {
+import WidgetController = Controllers.Widget;
+import WidgetModel = Models.Widget;
+import WidgetView = Views.Widget;
+
+export class Tabs extends WidgetModel implements WidgetController, WidgetView {
   tabNames: string[];
   constructor (props: TabsProps) {
     super(props);

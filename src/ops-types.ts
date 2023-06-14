@@ -39,12 +39,12 @@ export interface GithubCredentialsProvider extends Provider {
       aws ecs list-tasks --cluster $CLUSTER_NAME | jq '[.taskArns[0]][0]' | xargs -I{} bash -c 'aws ecs execute-command --cluster $CLUSTER_NAME --task {} --container $CONTAINER_NAME --command "df" --interactive';
  * ```
  */
-export interface Cli extends Widget  {
-  command: string
+export interface Cli extends Widget {
+  command: string;
   commandResult?: { stdout: string, stderr: string };
-  runOnStart?: boolean
-  hasRun?: boolean
-  environmentVariables?: { [key: string]: string }
+  runOnStart?: boolean;
+  hasRun?: boolean;
+  environmentVariables?: { [key: string]: string };
 }
 
 export interface GithubAction {

@@ -1,11 +1,15 @@
 import React from 'react';
 import isEmpty from 'lodash.isempty';
 import { Box, SimpleGrid } from '@chakra-ui/react';
-import { BaseWidget } from '@tinystacks/ops-core';
+import { Controllers, Models, Views } from '@tinystacks/ops-core';
 import { Widget } from '@tinystacks/ops-model';
 import { Grid as GridProps } from './ops-types.js';
 
-export class Grid extends BaseWidget {
+import WidgetController = Controllers.Widget;
+import WidgetModel = Models.Widget;
+import WidgetView = Views.Widget;
+
+export class Grid extends WidgetModel implements WidgetController, WidgetView {
   columns: number | undefined;
   constructor (props: GridProps) {
     super(props);

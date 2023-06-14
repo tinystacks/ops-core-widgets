@@ -1,11 +1,15 @@
 import React from 'react';
-import { BaseWidget } from '@tinystacks/ops-core';
+import { Controllers, Models, Views } from '@tinystacks/ops-core';
 import { default as ReactMarkdown } from 'react-markdown';
 import { default as ChakraUIRenderer } from 'chakra-ui-markdown-renderer';
 import { Box } from '@chakra-ui/react';
 import { Markdown as MarkdownProps } from './ops-types.js';
 
-export class Markdown extends BaseWidget {
+import WidgetController = Controllers.Widget;
+import WidgetModel = Models.Widget;
+import WidgetView = Views.Widget;
+
+export class Markdown extends WidgetModel implements WidgetController, WidgetView {
   markdown: string;
     
   constructor (props: MarkdownProps) {
