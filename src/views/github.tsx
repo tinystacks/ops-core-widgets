@@ -17,10 +17,15 @@ import {
 } from '@chakra-ui/react';
 import KeyValueStat from './components/key-value-stat.js';
 import { Github as GithubModel } from '../models/github.js';
+import { Github as GithubType } from '../ops-types.js';
 
 import WidgetView = Views.Widget;
 
 class Github extends GithubModel implements WidgetView {
+  static fromJson (object: GithubType, _dependencySource?: string): Github {
+    return new Github(object);
+  }
+
   render (_children?: (Widget & { renderedElement: JSX.Element; })[], _overridesCallback?: (overrides: any) => void): JSX.Element {
     return (
       <Stack p='20px' w='100%'>

@@ -1,5 +1,5 @@
 import { findProvider } from '../../src/utils/find-provider.js';
-import { GithubCredentialsProvider } from '../../src/providers/github-credentials-provider.js';
+import { GithubCredentialsProvider } from '../../src/core/github-credentials-provider.js';
 import { MockProvider } from '../mocks/MockProvider.js';
 
 describe('findProvider', () => {
@@ -11,7 +11,7 @@ describe('findProvider', () => {
       thrownError = error;
     } finally {
       expect(thrownError).toHaveProperty('name', 'TinyStacksError');
-      expect(thrownError).toHaveProperty('type', 'Validation');
+      expect(thrownError).toHaveProperty('type', 'Bad Request');
       expect(thrownError).toHaveProperty('status', 400);
       expect(thrownError).toHaveProperty('message', 'No providers are available!');
     }
@@ -31,7 +31,7 @@ describe('findProvider', () => {
       thrownError = error;
     } finally {
       expect(thrownError).toHaveProperty('name', 'TinyStacksError');
-      expect(thrownError).toHaveProperty('type', 'Validation');
+      expect(thrownError).toHaveProperty('type', 'Bad Request');
       expect(thrownError).toHaveProperty('status', 400);
       expect(thrownError).toHaveProperty('message', 'No MockProviders are available!');
     }

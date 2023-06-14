@@ -1,4 +1,5 @@
-import { Cli } from '../src/cli';
+import { Cli } from '../src/controllers/cli';
+import { Cli as CliView } from '../src/views/cli';
 import {jest} from '@jest/globals'
 import { render, cleanup, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
@@ -134,7 +135,7 @@ describe('Cli', () => {
       jest.mock('child_process', () => ({ exec: jest.fn() }));
       jest.mock('node:util', () => ({ promisify: jest.fn(() => mockExecPromise) }));
 
-      const cli = Cli.fromJson({ 
+      const cli = CliView.fromJson({ 
         id: 'MockWidget',
         type: 'Cli',
         displayName: 'mock widget', 
@@ -153,7 +154,7 @@ describe('Cli', () => {
       jest.mock('child_process', () => ({ exec: jest.fn() }));
       jest.mock('node:util', () => ({ promisify: jest.fn(() => mockExecPromise) }));
 
-      const cli = Cli.fromJson({ 
+      const cli = CliView.fromJson({ 
         id: 'MockWidget',
         type: 'Cli',
         displayName: 'mock widget', 
@@ -181,9 +182,10 @@ describe('Cli', () => {
         command: 'echo Hello', 
         runOnStart: true
       });
-
       await cli.getData();
-      const renderedCli = cli.render();
+      const cliView = CliView.fromJson(cli.toJson());
+
+      const renderedCli = cliView.render();
       render(renderedCli);
       expect(screen.getByText(stdout)).toBeInTheDocument();
       expect(screen.getByText('Clear')).toBeInTheDocument();

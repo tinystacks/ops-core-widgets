@@ -1,10 +1,10 @@
 {
   "name": "@tinystacks/ops-core-widgets",
   "version": "0.0.15",
-  "main": "dist/index.js",
   "exports": {
     "node": "./dist/node.js",
-    "browser": "./dist/browser.js"
+    "browser": "./dist/browser.js",
+    "default": "./dist/index.js"
   },
   "type": "module",
   "files": [
@@ -48,9 +48,9 @@
     "@types/lodash.get": "^4.4.7",
     "@types/lodash.isempty": "^4.4.7",
     "@types/lodash.join": "^4.0.7",
-    "@types/node": "^20.2.5",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/node": "^20.3.1",
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.52.0",
     "depcheck": "^1.4.3",
@@ -66,7 +66,7 @@
     "react-dom": "^18.2.0",
     "ts-jest": "^29.0.5",
     "ts-jest-resolver": "^2.0.0",
-    "typescript": "^4.9.5",
+    "typescript": "^5.1.3",
     "typescript-json-schema": "^0.57.0"
   },
   "dependencies": {

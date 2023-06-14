@@ -1,7 +1,4 @@
-export * from './cli-environment-provider.js';
 export * from './cli.js';
-export * from './credentials-provider.js';
-export * from './github-credentials-provider.js';
 export * from './github.js';
 export * from '../grid.js';
 export * from '../json-filter.js';

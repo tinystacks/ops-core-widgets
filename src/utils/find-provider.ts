@@ -1,7 +1,5 @@
-import { Models, TinyStacksError } from '@tinystacks/ops-core';
+import { TinyStacksError, Provider } from '@tinystacks/ops-core';
 import isEmpty from 'lodash.isempty';
-
-import Provider = Models.Provider;
 
 export function findProvider<T extends Provider> (providers: Provider[] = [], providerType: string): T {
   if (!providers || isEmpty(providers)) {

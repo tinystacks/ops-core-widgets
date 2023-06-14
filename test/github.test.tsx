@@ -15,8 +15,9 @@ const mockFormat = jest.fn();
 
 jest.mock('dayjs', () => mockDayJs)
 
-const { Github } = await import('../src/github');
-const { GithubCredentialsProvider } = await import('../src/providers/github-credentials-provider');
+const { Github } = await import('../src/controllers/github');
+const { Github: GithubView } = await import('../src/views/github');
+const { GithubCredentialsProvider } = await import('../src/core/github-credentials-provider');
 
 describe('Github', () => {
   beforeEach(() => {
@@ -55,7 +56,6 @@ describe('Github', () => {
     expect(githubWidget).toHaveProperty('repository');
     expect(githubWidget).toHaveProperty('toJson');
     expect(githubWidget).toHaveProperty('getData');
-    expect(githubWidget).toHaveProperty('render');
   });
   it('toJson', () => {
     const githubWidget = Github.fromJson({
@@ -187,15 +187,16 @@ describe('Github', () => {
       }
     });
 
-    const githubWidget = Github.fromJson({
+    const githubController = Github.fromJson({
       id: 'GithubWidget',
       type: 'Github',
       displayName: 'Github Widget',
       organization: 'mock-org',
       repository: 'mock-repo'
     });
+    await githubController.getData([githubProvider]);
+    const githubWidget = GithubView.fromJson(githubController.toJson());
 
-    await githubWidget.getData([githubProvider]);
 
     const renderedGithubWidget = githubWidget.render();
     render(renderedGithubWidget);

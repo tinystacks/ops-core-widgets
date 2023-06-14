@@ -3,8 +3,10 @@ import isEmpty from 'lodash.isempty';
 import { Box, Button, Code, Heading, HStack, Spacer, Stack } from '@chakra-ui/react';
 import { Views } from '@tinystacks/ops-core';
 import { Cli as CliModel } from '../models/cli.js';
+import { Cli as CliProps } from '../ops-types.js';
 
 import WidgetView = Views.Widget;
+import { doNothing } from '../utils/do-nothing.js';
 
 type CliOverrides = {
   clear?: boolean,
@@ -12,7 +14,11 @@ type CliOverrides = {
 }
 
 export class Cli extends CliModel implements WidgetView {
-  render (_children?: any, overridesCallback?: (overrides: CliOverrides) => void): JSX.Element {
+  static fromJson (object: CliProps): Cli {
+    return new Cli(object);
+  }
+
+  render (_children?: any, overridesCallback: (overrides: CliOverrides) => void = doNothing): JSX.Element {
     const commandResultRender = (!isEmpty(this.commandResult.stderr) || !isEmpty(this.commandResult.stdout)) ?
       <HStack spacing='24px'>
         <Box maxH='400px' w='100%' overflow='scroll'>

@@ -1,13 +1,10 @@
-import { Models, Types } from '@tinystacks/ops-core';
+import { Provider, Json } from '@tinystacks/ops-core';
 import { CliEnvironmentProvider } from './cli-environment-provider.js';
 import { CredentialsProvider } from './credentials-provider.js';
 import {
   GithubCredentials,
   GithubCredentialsProvider as GithubCredentialsProviderType
 } from '../ops-types.js';
-
-import Provider = Models.Provider;
-import Json = Types.Json;
 
 class GithubCredentialsProvider extends Provider implements CliEnvironmentProvider, CredentialsProvider, GithubCredentialsProviderType {
   static type = 'GithubCredentialsProvider';

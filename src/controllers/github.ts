@@ -1,12 +1,11 @@
 import { Octokit } from '@octokit/core';
-import { Models, Controllers, Types } from '@tinystacks/ops-core';
-import { GithubCredentialsProvider } from '../models/github-credentials-provider.js';
+import { Controllers, Json, Provider } from '@tinystacks/ops-core';
+import { GithubCredentialsProvider } from '../core/github-credentials-provider.js';
 import { findProvider } from '../utils/find-provider.js';
 import { Github as GithubModel } from '../models/github.js';
+import { Github as GithubType } from '../ops-types.js';
 
 import WidgetController = Controllers.Widget;
-import Provider = Models.Provider;
-import Json = Types.Json;
 
 type GithubOverrides = {
   host?: string;
@@ -15,6 +14,10 @@ type GithubOverrides = {
 };
 
 class Github extends GithubModel implements WidgetController {
+  static fromJson (object: GithubType, _dependencySource?: string): Github {
+    return new Github(object);
+  }
+
   async getData (providers?: Provider[], overrides: GithubOverrides = {}, _parameters?: Json): Promise<void> {
     const {
       organization = this.organization,

@@ -1,0 +1,1 @@
+export function doNothing (..._args: any[]): void { return; }
