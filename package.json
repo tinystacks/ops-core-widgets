@@ -1,10 +1,15 @@
 {
   "name": "@tinystacks/ops-core-widgets",
   "version": "0.0.15",
+  "main": "./dist/index.js",
   "exports": {
-    "node": "./dist/node.js",
-    "browser": "./dist/browser.js",
-    "default": "./dist/index.js"
+    "./dist/ops-types.json": "./dist/ops-types.json",
+    "./package.json": "./package.json",
+    ".": {
+      "node": "./dist/node.js",
+      "browser": "./dist/browser.js",
+      "default": "./dist/index.js"
+    }
   },
   "type": "module",
   "files": [
