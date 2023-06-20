@@ -80,7 +80,7 @@
   },
   "peerDependencies": {
     "@chakra-ui/react": "2.x",
-    "@tinystacks/ops-core": "file:../ops-core/tinystacks-ops-core-0.3.2.tgz",
+    "@tinystacks/ops-core": "file:../ops-core/tinystacks-ops-core-0.4.0.tgz",
     "@tinystacks/ops-model": "0.x",
     "http-status-codes": "2.x",
     "lodash.get": "4.x",
