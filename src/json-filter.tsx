@@ -1,9 +1,9 @@
 import React from 'react';
 import get from 'lodash.get';
-import { TinyStacksError as TinyStacksErrorType  } from '@tinystacks/ops-model';
 import { BaseWidget, TinyStacksError } from '@tinystacks/ops-core';
 import { Box, Stack } from '@chakra-ui/react';
 import { JsonFilter as JsonFilterProps } from './ops-types.js';
+import { ReasonPhrases } from 'http-status-codes';
 
 export class JsonFilter extends BaseWidget {
   static type = 'JsonFilter';
@@ -59,7 +59,7 @@ export class JsonFilter extends BaseWidget {
         `Error getting data for json tree widget ${this.id}!`,
         500,
         error.stack,
-        TinyStacksErrorType.type.INTERNAL_SERVER_ERROR
+        ReasonPhrases.INTERNAL_SERVER_ERROR
       );
     }
   }
