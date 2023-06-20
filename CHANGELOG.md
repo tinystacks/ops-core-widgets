@@ -1,3 +1,7 @@
+v0.0.16
+---
+- Implement Enhanced Error
+ 
 v0.0.15
 ---
 - Add yaml config examples to types in tsdoc comments
