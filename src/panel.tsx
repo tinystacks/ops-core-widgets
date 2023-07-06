@@ -1,11 +1,15 @@
 import React from 'react';
 import isEmpty from 'lodash.isempty';
 import { Box, HStack, Stack } from '@chakra-ui/react';
-import { BaseWidget } from '@tinystacks/ops-core';
+import { Controllers, Models, Views } from '@tinystacks/ops-core';
 import { Widget } from '@tinystacks/ops-model';
 import { Panel as PanelProps } from './ops-types.js';
 
-export class Panel extends BaseWidget {
+import WidgetController = Controllers.Widget;
+import WidgetModel = Models.Widget;
+import WidgetView = Views.Widget;
+
+export class Panel extends WidgetModel implements WidgetController, WidgetView {
   orientation: string;
   constructor (props: PanelProps) {
     super(props);

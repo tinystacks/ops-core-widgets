@@ -1,5 +1,5 @@
 import { findProvider } from '../../src/utils/find-provider.js';
-import { GithubCredentialsProvider } from '../../src/providers/github-credentials-provider.js';
+import { GithubCredentialsProvider } from '../../src/core/github-credentials-provider.js';
 import { MockProvider } from '../mocks/MockProvider.js';
 
 describe('findProvider', () => {

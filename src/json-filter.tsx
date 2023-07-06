@@ -1,11 +1,15 @@
 import React from 'react';
 import get from 'lodash.get';
-import { BaseWidget, TinyStacksError } from '@tinystacks/ops-core';
+import { ReasonPhrases } from 'http-status-codes';
+import { Controllers, Models, Views, TinyStacksError } from '@tinystacks/ops-core';
 import { Box, Stack } from '@chakra-ui/react';
 import { JsonFilter as JsonFilterProps } from './ops-types.js';
-import { ReasonPhrases } from 'http-status-codes';
 
-export class JsonFilter extends BaseWidget {
+import WidgetController = Controllers.Widget;
+import WidgetModel = Models.Widget;
+import WidgetView = Views.Widget;
+
+export class JsonFilter extends WidgetModel implements WidgetController, WidgetView {
   static type = 'JsonFilter';
   jsonObject: { [key: string]: any; };
   paths: {

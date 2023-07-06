@@ -1,7 +1,16 @@
 {
   "name": "@tinystacks/ops-core-widgets",
   "version": "0.0.16",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "exports": {
+    "./dist/ops-types.json": "./dist/ops-types.json",
+    "./package.json": "./package.json",
+    ".": {
+      "node": "./dist/node.js",
+      "browser": "./dist/browser.js",
+      "default": "./dist/index.js"
+    }
+  },
   "type": "module",
   "files": [
     "dist"
@@ -37,13 +46,14 @@
     "@jest/globals": "^29.5.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^14.0.0",
+    "@types/http-status-codes": "^1.2.0",
     "@types/jest": "^29.4.0",
     "@types/lodash.get": "^4.4.7",
     "@types/lodash.isempty": "^4.4.7",
     "@types/lodash.join": "^4.0.7",
-    "@types/node": "^20.2.5",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/node": "^20.3.1",
+    "@types/react": "^18.2.12",
+    "@types/react-dom": "^18.2.5",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.52.0",
     "depcheck": "^1.4.3",
@@ -59,23 +69,21 @@
     "react-dom": "^18.2.0",
     "ts-jest": "^29.0.5",
     "ts-jest-resolver": "^2.0.0",
-    "typescript": "^4.9.5",
+    "typescript": "^5.1.3",
     "typescript-json-schema": "^0.57.0"
-  },
-  "dependencies": {
-    "@octokit/core": "^4.2.1",
-    "chakra-ui-markdown-renderer": "^4.1.0",
-    "dayjs": "^1.11.7",
-    "react-markdown": "^8.0.5"
   },
   "peerDependencies": {
     "@chakra-ui/react": "2.x",
-    "@tinystacks/ops-core": "0.x",
+    "@tinystacks/ops-core": "/Users/calebcourier/Projects/ops/ops-core/tinystacks-ops-core-0.4.0.tgz",
     "@tinystacks/ops-model": "0.x",
+    "@octokit/core": "4.x",
+    "chakra-ui-markdown-renderer": "4.x",
+    "dayjs": "1.x",
     "http-status-codes": "2.x",
     "lodash.get": "4.x",
     "lodash.isempty": "4.x",
     "lodash.isnil": "4.x",
-    "react": "18.x"
+    "react": "18.x",
+    "react-markdown": "8.x"
   }
 }

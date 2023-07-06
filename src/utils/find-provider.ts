@@ -1,7 +1,7 @@
-import { BaseProvider, TinyStacksError } from '@tinystacks/ops-core';
+import { TinyStacksError, Provider } from '@tinystacks/ops-core';
 import isEmpty from 'lodash.isempty';
 
-export function findProvider<T extends BaseProvider> (providers: BaseProvider[] = [], providerType: string): T {
+export function findProvider<T extends Provider> (providers: Provider[] = [], providerType: string): T {
   if (!providers || isEmpty(providers)) {
     throw TinyStacksError.fromJson({
       message: 'No providers are available!',

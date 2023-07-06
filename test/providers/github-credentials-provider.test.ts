@@ -1,4 +1,5 @@
-import { GithubCredentialsProvider, GithubCredentialsProviderType } from '../../src/providers/github-credentials-provider';
+import { GithubCredentialsProvider } from '../../src/core/github-credentials-provider';
+import { GithubCredentialsProvider as GithubCredentialsProviderType } from '../../src/ops-types';
 
 describe('GithubCredentialsProvider', () => {
   it('fromJson', () => {

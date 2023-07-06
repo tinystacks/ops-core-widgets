@@ -1,5 +1,4 @@
-import { BaseProvider } from '@tinystacks/ops-core';
-import { OtherProperties } from '@tinystacks/ops-core/dist/types.js';
+import { Provider, Json } from '@tinystacks/ops-core';
 import { CliEnvironmentProvider } from './cli-environment-provider.js';
 import { CredentialsProvider } from './credentials-provider.js';
 import {
@@ -7,8 +6,7 @@ import {
   GithubCredentialsProvider as GithubCredentialsProviderType
 } from '../ops-types.js';
 
-
-class GithubCredentialsProvider extends BaseProvider implements CliEnvironmentProvider, CredentialsProvider, GithubCredentialsProviderType {
+class GithubCredentialsProvider extends Provider implements CliEnvironmentProvider, CredentialsProvider, GithubCredentialsProviderType {
   static type = 'GithubCredentialsProvider';
   credentials: GithubCredentials;
   host?: string;
@@ -30,7 +28,7 @@ class GithubCredentialsProvider extends BaseProvider implements CliEnvironmentPr
     return this.credentials;
   }
 
-  getCliEnvironment (envVars: OtherProperties = {}): OtherProperties {
+  getCliEnvironment (envVars: Json = {}): Json {
     if (this.host) {
       envVars['GH_HOST'] = this.host;
     }
